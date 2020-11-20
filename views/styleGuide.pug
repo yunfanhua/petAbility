@@ -1,0 +1,67 @@
+extends layout.pug
+
+append stylesheets
+  link(rel='stylesheet' href='/stylesheets/styleGuide.css')
+
+block content
+  div.container
+    div
+      h2 1.Logos
+
+    div
+      h2 2.Primary Colors
+      p
+        a(href="https://colorhunt.co/palette/43937") Reference
+      .row.row-cols-3
+        .col
+          .row.align-items-center
+            .col
+              div(style="background-color: #e6af2e;").color-sample
+            .col
+              span.align-middle(style="color: #e6af2e;") yellow-ochre <br/> #e6af2e
+        .col
+          .row.align-items-center
+            .col
+              div(style="background-color: #282f44;").color-sample
+            .col
+              span.align-middle(style="color: #282f44;") dark-navy <br/> #282f44
+        .col
+          .row.align-items-center
+            .col
+              div(style="background-color: #ececec;").color-sample
+            .col
+              span.align-middle(style="color: #acacac;") ivory <br/> #ececec
+    div
+      h2 3.Secondary Colors
+      .row.row-cols-3
+        .col
+          .row.align-items-center
+            .col
+              div(style="background-color: #e6af2e;").color-sample
+            .col
+              span.align-middle(style="color: #e6af2e;") yellow-ochre <br/> #e6af2e
+        .col
+          .row.align-items-center
+            .col
+              div(style="background-color: #282f44;").color-sample
+            .col
+              span.align-middle(style="color: #282f44;") dark-navy <br/> #282f44
+        .col
+          .row.align-items-center
+            .col
+              div(style="background-color: #ececec;").color-sample
+            .col
+              span.align-middle(style="color: #acacac;") ivory <br/> #ececec
+    div
+      h2 4. Typography
+      .container
+        h3 Heading 2
+    div
+      h2 5. Forms
+    div
+      h2 6. Buttons
+    div
+      h2 7. Navigaton
+
+
+
