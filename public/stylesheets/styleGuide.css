@@ -3,3 +3,31 @@
     height: 100px;
     border-radius: 5px;
 }
+
+#primary-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 16px 32px;
+
+    /*position: absolute;*/
+    width: 343px;
+    height: 51px;
+    background: #132743;
+    border-radius: 100px;
+}
+
+#skip-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 16px 32px;
+
+    /*position: absolute;*/
+    width: 151px;
+    height: 51px;
+
+    background: #ececec;
+    color: #282f44;
+    border-radius: 100px;
+}
