@@ -101,3 +101,54 @@
     font-size: 16px;
     line-height: 20px;
 }
+#pageheader{
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 29px;
+}
+
+#back{
+    /* position: absolute; */
+    width: 38px;
+    height: 19px;
+    left: 5px;
+    top: 20px;/*calc(50% - 19px/2 + 0.5px);*/
+    padding-left:20px;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 168px;
+    color: #F8EFD4;
+}
+
+.nav-sample {
+    /* position: absolute; */
+    width: 375px;
+    height: 118px;
+    margin-left: -15px;
+    left: -16px;
+    top: -60px;
+    border-radius: 5px;
+    background: #132743;
+}
+
+#pagetitle{
+    /* position: absolute; */
+    width: 146px;
+    height: 36px;
+    left: calc(50% - 146px/2 - 0.5px);
+    top: 0px;
+    margin-top:-60px;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 36px;
+    text-align: center;
+    color: #F8EFD4;
+}
+
+
