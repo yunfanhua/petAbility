@@ -79,3 +79,25 @@
 .nav-item {
     background: #ececec;
 }
+
+#heading-1{
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 38px;
+}
+#heading-2{
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 25px;
+}
+#body{
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+}
