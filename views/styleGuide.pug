@@ -2,6 +2,7 @@ extends layout.pug
 
 append stylesheets
   link(rel='stylesheet' href='/stylesheets/styleGuide.css')
+  script(src='https://kit.fontawesome.com/6b38ac7b93.js', crossorigin='anonymous')
 
 block content
   div.container
@@ -75,6 +76,19 @@ block content
       button(type='submit', class='btn btn-primary', id='primary-button') Primary Action
       br
       button(type='submit', class='btn btn-secondary', id='skip-button') Skip
+      br
+      div.progress-buttons
+        button(type='submit', class='btn btn-secondary', id='back-button') Back
+        button(type='submit', class='btn btn-primary', id='next-button') Next
+      br
+      div.menu-button#menu-button
+        i.fas.fa-chevron-left#menu-back-button
+      br
+      ul.nav.nav-tabs.nav-justified#myTab(role="tablist")
+        li.nav-item
+          a.nav-link.active#tab1(data-toggle="tab", role="tab") Cat
+        li.nav-item
+          a.nav-link#tab2(data-toggle="tab", role="tab") Dog
       br
     div
       h2 7. Navigaton
