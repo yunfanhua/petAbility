@@ -113,13 +113,24 @@ block content
       br
     div
       h2 7. Navigaton
-      h1(id = "pageheader") Page header
-      .col
+      nav.navbar.navbar-light
+      .row.navbar-container 
+        .col.navbar-button.left-button(id = 'home-button')
+          img(src='/img/home.svg' alt='')
+          span.navbar-button-text 
+            h1(id = 'home') Home
+        .col.navbar-button.middle-button(id = 'adopt-button')
+          img(src='/img/adopt.svg' alt='')
+          span.navbar-button-text 
+            h1(id = 'adopt') Adopt Pet
+        
+      //- h1(id = "pageheader") Page header
+      //- .col
    
-        div(style="background-color: #132743;").nav-sample 
-            h1(id = "back") Back
-        div(style="padding-left:114.5px;")
-            h1(id = "pagetitle") Page Title
+      //-   div(style="background-color: #132743;").nav-sample 
+      //-       h1(id = "back") Back
+      //-   div(style="padding-left:114.5px;")
+      //-       h1(id = "pagetitle") Page Title
           
 
            
