@@ -159,8 +159,8 @@
     /*position: absolute;*/
     width: 188px;
     height: 80px;
-    border: 0.5px solid #132743;
-    background: #132743;
+    border: 0.5px solid #282f44;
+    background: #282f44;
     
 }
 #adopt-button {
@@ -171,8 +171,8 @@
     /*position: absolute;*/
     width: 188px;
     height: 80px;
-    border: 0.5px solid #132743;
-    background: #132743;
+    border: 0.5px solid #282f44;
+    background: #282f44;
 }
 
 #home{
@@ -192,7 +192,7 @@
     text-align: center;
     letter-spacing: 0.2px;
     
-    color: #F8EFD4;
+    color: #ececec;
     
 }
 
@@ -215,5 +215,5 @@
     text-align: center;
     letter-spacing: 0.2px;
 
-    color: #F8EFD4;
+    color: #ececec;
 }
