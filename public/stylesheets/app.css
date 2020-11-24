@@ -1,0 +1,12 @@
+.title-header, .navigation-footer .nav {
+    background-color: #282f44;
+    color: #ececec;
+}
+
+.navigation-footer a {
+    color:  #ececec;
+}
+
+.navigation-footer .active {
+    background-color:  red !important;
+}

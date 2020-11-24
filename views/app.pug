@@ -1,0 +1,10 @@
+extends layout.pug
+
+append stylesheets
+  link(rel='stylesheet' href='/stylesheets/app.css')
+
+block content
+  .title-header.text-center.py-3
+    h3=title
+  block app-content
+
