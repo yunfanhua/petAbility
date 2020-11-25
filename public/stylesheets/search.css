@@ -1,0 +1,29 @@
+
+.user-image {
+    position: relative;
+    left: calc(50% - 125px);
+    margin-bottom: 20px;
+    margin-top: 40px;
+    border-radius: 10%;
+}
+
+.search-group {
+    position: relative;
+    width: 250px;
+    height: 230px;
+    left: calc(50% - 125px);
+}
+
+#primary-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 14px 32px;
+    /*position: absolute;*/
+    width: 250px;
+    height: 51px;
+    border: 0.5px solid #282f44;
+    background: #282f44;
+    border-radius: 100px;
+
+}

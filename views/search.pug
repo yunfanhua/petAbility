@@ -1,6 +1,16 @@
 extends app.pug
 
 block app-content
-  p this is home page
-  
+  div.cover-photo
+    img.user-image(src="img/searchCover.jpeg", alt="CMU", width="250px", height="160px")
+  div.search
+    form
+      div.search-group
+        label I'M FROM
+        input(type="text" class="form-control" placeholder="94043, CA")
+        label WITHIN
+        input(type="text" class="form-control" placeholder="20 miles")
+        br
+        button(type='submit', class='btn btn-primary', id='primary-button') Search
+
   include app-footer.pug
