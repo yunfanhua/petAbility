@@ -3,12 +3,18 @@ import * as THREE from './vendor/three/build/three.module.js';
 import Stats from './vendor/three/examples/jsm/libs/stats.module.js';
 import { GUI } from './vendor/three/examples/jsm/libs/dat.gui.module.js';
 
-import { GLTFLoader } from './vendor/three/examples/jsm/loaders/GLTFLoader.js';
+import { FBXLoader } from './vendor/three/examples/jsm/loaders/FBXLoader.js';
+import { OutlineEffect } from './vendor/three/examples/jsm/effects/OutlineEffect.js';
+import { Sky } from './vendor/three/examples/jsm/objects/Sky.js';
 
 let container, stats, clock, gui, mixer, actions, activeAction, previousAction;
-let camera, scene, renderer, model, face;
+let camera, scene, renderer, model, effect;
+let sky, sun;
 
-const api = { state: 'Walking' };
+let scale = 0.1;
+const api = { state: 'Idle' };
+let actionNames = ['Idle', 'Walk', 'Eat', 'Jump'];
+
 
 init();
 animate();
@@ -18,13 +24,13 @@ function init() {
     container = document.getElementById('interact-container');
     document.body.appendChild(container);
 
-    camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.25, 100);
+    camera = new THREE.PerspectiveCamera(25, 2, 1, 1000);
     camera.position.set(- 5, 3, 10);
     camera.lookAt(new THREE.Vector3(0, 2, 0));
 
     scene = new THREE.Scene();
     scene.background = new THREE.Color(0xe0e0e0);
-    scene.fog = new THREE.Fog(0xe0e0e0, 20, 100);
+    scene.fog = new THREE.Fog(0xdcd2b7, 20, 100);
 
     clock = new THREE.Clock();
 
@@ -38,27 +44,27 @@ function init() {
     dirLight.position.set(0, 20, 10);
     scene.add(dirLight);
 
-    // ground
 
-    const mesh = new THREE.Mesh(new THREE.PlaneBufferGeometry(2000, 2000), new THREE.MeshPhongMaterial({ color: 0x999999, depthWrite: false }));
-    mesh.rotation.x = - Math.PI / 2;
-    scene.add(mesh);
 
-    // const grid = new THREE.GridHelper(200, 40, 0x000000, 0x000000);
-    // grid.material.opacity = 0.2;
-    // grid.material.transparent = true;
-    // scene.add(grid);
 
     // model
 
-    const loader = new GLTFLoader();
-    loader.load('models/test.glb', function (gltf) {
-
-        model = gltf.scene;
+    const loader = new FBXLoader();
+    loader.load('models/Dog.fbx', function (fbx) {
+        model = fbx;
+        console.log(model)
+        model.traverse(obj=> {
+            if(obj instanceof THREE.Line) {
+                obj.visible = false;
+            }
+        })
+        model.scale.set( scale, scale, scale );
+        setModelMaterial(model.children[1]);
         scene.add(model);
-
-        createGUI(model, gltf.animations);
-
+        loadAnimations().then(animations=>{
+            console.log(animations)
+            createGUI(model, animations);
+        });
     }, undefined, function (e) {
 
         console.error(e);
@@ -70,22 +76,56 @@ function init() {
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.outputEncoding = THREE.sRGBEncoding;
     container.appendChild(renderer.domElement);
+    effect = new OutlineEffect( renderer, {defaultThickness: 0.006} );
 
-    window.addEventListener('resize', onWindowResize, false);
+    window.addEventListener('resize', resizeCanvasToDisplaySize, false);
 
+    initSky();
+
+    // ground
+
+    const texture = new THREE.TextureLoader().load( "models/Grass.png" );
+    texture.wrapS = THREE.RepeatWrapping;
+    texture.wrapT = THREE.RepeatWrapping;
+    texture.repeat.set(400,400)
+    const mesh = new THREE.Mesh(new THREE.PlaneBufferGeometry(2000, 2000), new THREE.MeshPhongMaterial({ color: 0x999999, depthWrite: false, map: texture }));
+
+    mesh.rotation.x = - Math.PI / 2;
+    scene.add(mesh);
     // stats
-    stats = new Stats();
-    container.appendChild(stats.dom);
+    //stats = new Stats();
+    //container.appendChild(stats.dom);
+}
+
+function setModelMaterial(mesh) {
+    console.log(mesh.material)   
+    let colors = Uint8Array.from([1, 200, 255]);
+    const gradientMap = new THREE.DataTexture( colors, colors.length, 1, THREE.LuminanceFormat );
+    gradientMap.minFilter = THREE.NearestFilter;
+    gradientMap.magFilter = THREE.NearestFilter;
+    gradientMap.generateMipmaps = false;
+    
+    let toonMaterial = new THREE.MeshToonMaterial ({
+        color: new THREE.Color( 'white'),
+        gradientMap: gradientMap,
+        skinning: true,
+        map: mesh.material.map,
+    });
+    mesh.material =  toonMaterial;
+    console.log(mesh.material)   
 
 }
 
 function createGUI(model, animations) {
+    const states = actionNames;
+    //, 'Idle', 'Running', 'Dance', 'Death', 'Sitting', 'Standing'
+    //const emotes = ['Jump', 'Yes', 'No', 'Wave', 'Punch', 'ThumbsUp'];
 
-    const states = ['Walk', 'Idle', 'Running', 'Dance', 'Death', 'Sitting', 'Standing'];
-    const emotes = ['Jump', 'Yes', 'No', 'Wave', 'Punch', 'ThumbsUp'];
+    gui = new GUI({
+        autoPlace : true
+    });
 
-    gui = new GUI();
-
+    gui.domElement.id = "gui"
     mixer = new THREE.AnimationMixer(model);
 
     actions = {};
@@ -95,19 +135,11 @@ function createGUI(model, animations) {
         const clip = animations[i];
         const action = mixer.clipAction(clip);
         actions[clip.name] = action;
-
-        if (emotes.indexOf(clip.name) >= 0 || states.indexOf(clip.name) >= 4) {
-
-            action.clampWhenFinished = true;
-            action.loop = THREE.LoopOnce;
-
-        }
-
     }
 
     // states
 
-    const statesFolder = gui.addFolder('States');
+    const statesFolder = gui.addFolder('Controls');
 
     const clipCtrl = statesFolder.add(api, 'state').options(states);
 
@@ -119,62 +151,11 @@ function createGUI(model, animations) {
 
     statesFolder.open();
 
-    // emotes
-
-    const emoteFolder = gui.addFolder('Emotes');
-
-    function createEmoteCallback(name) {
-
-        api[name] = function () {
-
-            fadeToAction(name, 0.2);
-
-            mixer.addEventListener('finished', restoreState);
-
-        };
-
-        emoteFolder.add(api, name);
-
-    }
-
-    function restoreState() {
-
-        mixer.removeEventListener('finished', restoreState);
-
-        fadeToAction(api.state, 0.2);
-
-    }
-
-    for (let i = 0; i < emotes.length; i++) {
-
-        createEmoteCallback(emotes[i]);
-
-    }
-
-    emoteFolder.open();
-
-    // expressions
-
-    // face = model.getObjectByName('Head_4');
-
-    // const expressions = Object.keys(face.morphTargetDictionary);
-    // const expressionFolder = gui.addFolder('Expressions');
-
-    // for (let i = 0; i < expressions.length; i++) {
-
-    //     expressionFolder.add(face.morphTargetInfluences, i, 0, 1, 0.01).name(expressions[i]);
-
-    // }
-
-    // activeAction = actions['Walking'];
-    // activeAction.play();
-
-    //expressionFolder.open();
-
+    activeAction = actions['Idle'];
+    activeAction.play();
 }
 
 function fadeToAction(name, duration) {
-
     previousAction = activeAction;
     activeAction = actions[name];
 
@@ -193,19 +174,26 @@ function fadeToAction(name, duration) {
 
 }
 
-function onWindowResize() {
+function resizeCanvasToDisplaySize() {
+    const canvas = renderer.domElement;
+    // look up the size the canvas is being displayed
+    const width = canvas.clientWidth;
+    const height = canvas.clientHeight;
+  
+    // adjust displayBuffer size to match
+    if (canvas.width !== width || canvas.height !== height) {
+      // you must pass false here or three.js sadly fights the browser
+      renderer.setSize(width, height, false);
+      camera.aspect = width / height;
+      camera.updateProjectionMatrix();
+  
+      // update any render target sizes here
+    }
+  }
 
-    camera.aspect = window.innerWidth / window.innerHeight;
-    camera.updateProjectionMatrix();
-
-    renderer.setSize(window.innerWidth, window.innerHeight);
-
-}
-
-//
 
 function animate() {
-
+    resizeCanvasToDisplaySize();
     const dt = clock.getDelta();
 
     if (mixer) mixer.update(dt);
@@ -214,6 +202,78 @@ function animate() {
 
     renderer.render(scene, camera);
 
-    stats.update();
+    // stats.update();
+    effect.render( scene, camera );
+}
 
+function initSky() {
+
+    // Add Sky
+    sky = new Sky();
+    sky.scale.setScalar( 450000 );
+    scene.add( sky );
+
+    sun = new THREE.Vector3();
+
+    /// GUI
+
+    const effectController = {
+        turbidity: 2,
+        rayleigh: 0.75,
+        mieCoefficient: 0.005,
+        mieDirectionalG: 0,
+        inclination: 0.483, // elevation / inclination
+        azimuth: 0.3396, 
+        exposure: renderer.toneMappingExposure
+    };
+
+    function guiChanged() {
+
+        const uniforms = sky.material.uniforms;
+        uniforms[ "turbidity" ].value = effectController.turbidity;
+        uniforms[ "rayleigh" ].value = effectController.rayleigh;
+        uniforms[ "mieCoefficient" ].value = effectController.mieCoefficient;
+        uniforms[ "mieDirectionalG" ].value = effectController.mieDirectionalG;
+
+        const theta = Math.PI * ( effectController.inclination - 0.5 );
+        const phi = 2 * Math.PI * ( effectController.azimuth - 0.5 );
+
+        sun.x = Math.cos( phi );
+        sun.y = Math.sin( phi ) * Math.sin( theta );
+        sun.z = Math.sin( phi ) * Math.cos( theta );
+
+        uniforms[ "sunPosition" ].value.copy( sun );
+
+        renderer.toneMappingExposure = effectController.exposure;
+    }
+
+
+
+    guiChanged();
+
+}
+
+async function loadAnimations() {
+    let animations = [];
+    for (let i = 0; i < actionNames.length; i++) {
+        let fbx = await loadFBX(`models/Animal_TypeA@${actionNames[i]}.fbx`);
+        let anim = fbx.animations[0];
+        anim.name = actionNames[i];
+        let begin = anim.tracks[0].times[0];
+
+        anim.tracks.forEach(track=> {
+            for (let j = 0; j < track.times.length; j++) {
+                track.times[j] -= begin;
+            }
+        })
+        anim.duration -= begin;
+        animations.push(anim);
+    }
+    return animations;
+}
+
+function  loadFBX(path) {
+    return new Promise(resolve => {
+        new FBXLoader().load(path, resolve);
+    })
 }

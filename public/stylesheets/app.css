@@ -10,3 +10,15 @@
 .navigation-footer .active {
     background-color:  red !important;
 }
+
+/* Interacts */
+#interact-container canvas {
+    width: 100% !important;
+    height: 50vh !important;
+}
+
+#gui {
+    position: absolute;
+    top: 100px;
+    width: 50px;
+}
