@@ -50,3 +50,40 @@
     font-size: 12px;
     color: #282f44;
 }
+
+.result-container {
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 300px;
+}
+
+.dog-result {
+    position: relative;
+    left: calc(50% - 150px);
+    width: 300px;
+    padding: 10px;
+    display: flex;
+    background-color: #ebbf58;
+    border-radius: 10px;
+    /*align-items: flex-end;*/
+}
+
+.result-image {
+    height: 80px;
+    width: 80px;
+    margin-top: 6px;
+    border-radius: 10%;
+}
+
+.all-info {
+    padding-left: 10px;
+}
+
+.dog-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}

@@ -1,6 +1,19 @@
 extends app.pug
 
 block app-content
-    p this is home page
-
+  div.result-container
+    div.dog-result
+      img.result-image(src="../img/searchCover.jpeg", alt="CMU")
+      div.all-info
+        div.dog-info
+          div.dog-info-name Strawberry
+          div.dog-info-location 0.8 mile
+        div.dog-trait Adult Female; Chihuahua mix
+    div.dog-result
+      img.result-image(src="../img/searchCover.jpeg", alt="CMU")
+      div.all-info
+        div.dog-info
+          div.dog-info-name Chocolate
+          div.dog-info-location 2.3 mile
+        div.dog-trait Adult Female; Collie Shepherd
     include app-footer.pug
