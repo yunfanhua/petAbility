@@ -14,6 +14,19 @@
     left: calc(50% - 125px);
 }
 
+
+.search-prompt {
+    position: relative;
+    left: calc(50% - 105px);
+    width: 208px;
+    padding-left: 7px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    font-size: 15px;
+    color: #ececec;
+    background-color: #535969;
+}
+
 #primary-button {
     display: flex;
     flex-direction: column;
@@ -26,4 +39,14 @@
     background: #282f44;
     border-radius: 100px;
 
+}
+
+.label {
+    margin-top: 10px;
+    margin-bottom: 2px;
+    /*font-family: 'Mulish';*/
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    font-size: 12px;
+    color: #282f44;
 }

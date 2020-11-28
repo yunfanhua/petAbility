@@ -19,6 +19,10 @@ router.get('/search', function(req, res, next) {
   res.render('search', {title: 'Pets Near Me'});
 });
 
+router.get('/search/result', function(req, res, next) {
+  res.render('search-result', {title: 'Pets Near Me'});
+});
+
 
 router.get('/interact', function(req, res, next) {
   res.render('interact');
