@@ -1,0 +1,23 @@
+extends app.pug
+
+append stylesheets
+  link(rel='stylesheet' href='/stylesheets/shareResult.css')
+
+block app-content
+  div.d-flex.justify-content-center
+    div.search
+        h2#title #[strong Contact me by:]
+        div.checkbox-group
+            div.checkbox-inline
+                div
+                    input.checkbox-input#shelterA(type = 'checkbox')
+                    label(for='shelterA') Email
+            div.checkbox-inline
+                div
+                    input.checkbox-input#shelterB(type = 'checkbox')
+                    label(for='shelterB') Phone
+                input(id= "phone" placeholder = "(xxx)xxx-xxxx")
+            div.confirm.d-flex
+                button(type='submit', class='btn btn-secondary', id='cancel-button', onclick="location.href='/share/form'") Back
+                button(type='submit', class='btn btn-primary', id='ok-button', onclick = "location.href='/share/success'") Submit
+  //- include app-footer.pug
