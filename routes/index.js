@@ -14,6 +14,10 @@ router.get('/signup', function(req, res, next) {
   res.render('signup');
 });
 
+router.get('/welcome', function(req, res, next) {
+  res.render('welcome');
+});
+
 
 router.get('/style', function(req, res, next) {
   res.render('styleGuide');

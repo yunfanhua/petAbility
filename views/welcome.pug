@@ -1,0 +1,19 @@
+extends layout
+
+append stylesheets
+    link(rel='stylesheet' href='/stylesheets/search.css')
+    script(src='js/welcome.js')
+
+block content
+    div.cover-photo
+        img.user-image(src="img/logo.png", alt="CMU", width="250px", height="160px")
+    div.description-header.text-center
+        h3 Welcome
+    div.description-body.text-sm-center(style="margin: 20px;")
+        ul Take a short survey to understand what pets suit your lifestyle and get started on your dream pet!
+    br
+    div.buttons
+      button(type='submit', class='btn btn-primary', id='primary-button') GET STARTED
+      br
+      br
+      button(type='submit', class='btn btn-primary', id='skip-button') SKIP
