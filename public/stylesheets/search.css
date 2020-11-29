@@ -19,12 +19,13 @@
     position: relative;
     left: calc(50% - 105px);
     width: 208px;
-    padding-left: 7px;
+    padding-left: 10px;
     font-weight: bold;
     letter-spacing: 1.5px;
     font-size: 15px;
     color: #ececec;
     background-color: #535969;
+    border-radius: 20px;
 }
 
 .result-prompt {
@@ -69,6 +70,9 @@
     justify-content: space-between;
     height: 300px;
 }
+.link {
+    cursor: pointer;
+}
 
 .dog-result {
     position: relative;
@@ -95,9 +99,15 @@
 
 .dog-info {
     display: flex;
+    font-weight: bold;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 10px;
+    font-size: 17px;
+}
+
+.dog-trait {
+    font-style: italic;
 }
 
 

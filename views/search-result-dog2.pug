@@ -1,5 +1,8 @@
 extends app.pug
 
+append stylesheets
+    script(src="../js/searchResult.js")
+
 block app-content
     br
     div.result-prompt Your Search Result...
@@ -11,5 +14,9 @@ block app-content
                     div.dog-info-name Chocolate
                     div.dog-info-location 2.3 mile
                 div.dog-trait Adult Female; Collie Shepherd
+        br
+        div.dog-result(style="background-color: #ececec; color: #282f44")
+          div.dog-trait Chocolate just arrived our shelter! She has a active lifestyle and would like people that are energetic and kind. If interested, please contact Berkeley Humane Society: berkeleyhumane.org
+        br
         button(type='submit', class='btn btn-secondary', id='skip-button') Back
-        include app-footer.pug
+        //include app-footer.pug
