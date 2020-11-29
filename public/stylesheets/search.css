@@ -63,6 +63,10 @@
     color: #282f44;
 }
 
+#user {
+    padding-left: 12px;
+}
+
 .result-container {
     padding-top: 20px;
     display: flex;
