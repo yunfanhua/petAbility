@@ -1,0 +1,130 @@
+
+.user-image {
+    position: relative;
+    left: calc(50% - 125px);
+    margin-bottom: 20px;
+    margin-top: 40px;
+    border-radius: 10%;
+}
+
+.search-group {
+    position: relative;
+    width: 250px;
+    height: 230px;
+    left: calc(50% - 125px);
+}
+
+
+.search-prompt {
+    position: relative;
+    left: calc(50% - 105px);
+    width: 208px;
+    padding-left: 10px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    font-size: 15px;
+    color: #ececec;
+    background-color: #535969;
+    border-radius: 20px;
+}
+
+.result-prompt {
+    position: relative;
+    left: calc(50% - 105px);
+    width: 208px;
+    padding-left: 7px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    font-size: 15px;
+    color: #535969;
+}
+
+#primary-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 14px 32px;
+    /*position: absolute;*/
+    width: 250px;
+    height: 51px;
+    border: 0.5px solid #282f44;
+    background: #282f44;
+    border-radius: 100px;
+
+}
+
+.label {
+    margin-top: 10px;
+    margin-bottom: 2px;
+    /*font-family: 'Mulish';*/
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    font-size: 12px;
+    color: #282f44;
+}
+
+#user {
+    padding-left: 12px;
+}
+
+.result-container {
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 300px;
+}
+.link {
+    cursor: pointer;
+}
+
+.dog-result {
+    position: relative;
+    left: calc(50% - 150px);
+    width: 300px;
+    padding: 10px;
+    display: flex;
+    background-color: #535969;
+    color: #ececec;
+    border-radius: 10px;
+    /*align-items: flex-end;*/
+}
+
+.result-image {
+    height: 80px;
+    width: 80px;
+    margin-top: 6px;
+    border-radius: 10%;
+}
+
+.all-info {
+    padding-left: 10px;
+}
+
+.dog-info {
+    display: flex;
+    font-weight: bold;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 17px;
+}
+
+.dog-trait {
+    font-style: italic;
+}
+
+
+#skip-button {
+    position: relative;
+    left: calc(50% - 130px);
+    flex-direction: column;
+    align-items: center;
+    padding: 14px 32px;
+    width: 250px;
+    height: 51px;
+    border: 0.5px solid #282f44;
+    background: #ececec;
+    color: #282f44;
+    border-radius: 100px;
+}
