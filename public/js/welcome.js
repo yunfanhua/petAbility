@@ -7,6 +7,6 @@ $(function() {
     });
     skipButton.click((e) => {
         e.preventDefault();
-        window.location.href= '/home';
+        window.location.href= '/skip';
     });
 });

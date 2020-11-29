@@ -18,6 +18,10 @@ router.get('/welcome', function(req, res, next) {
   res.render('welcome');
 });
 
+router.get('/skip', function(req, res, next) {
+  res.render('skip', {title: 'Home'});
+});
+
 
 router.get('/style', function(req, res, next) {
   res.render('styleGuide');
