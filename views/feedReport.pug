@@ -1,0 +1,80 @@
+extends app.pug
+ 
+block app-content
+  div.report-result
+    img.report-image(src="/img/feed.jpg", alt="CMU")
+    div.report-info
+        div.item-info
+            div.item-info-name Feed
+            div.item-info-score 80/100
+        div.score-bar
+            img.eighty-image(src="/img/eighty.svg", alt="CMU")
+    
+
+  
+  ul.nav.nav-list(id = "line-feed")
+    li.divider
+  div.item-container
+      div.item-result
+        div.report-info
+          div.item-info
+            div.data 09/01 : 
+            img.check(src="/img/check-yes.svg", alt="CMU")
+          div.item-info
+            div.itemtext Frequency
+            div.leveltext Too Low
+            div.choosetext Perfect
+            div.leveltext Too High
+          div.item-info
+            div.itemtext Amount
+            div.leveltext Too Low
+            div.leveltext Perfect
+            div.choosetext Too High
+      div.item-result
+        div.report-info
+          div.item-info
+            div.data 09/01 : 
+            img.check(src="/img/check-no.svg", alt="CMU")
+          div.item-info
+            div.itemtext Frequency
+            div.leveltext Too Low
+            div.leveltext Perfect
+            div.leveltext Too High
+          div.item-info
+            div.itemtext Amount
+            div.leveltext Too Low
+            div.leveltext Perfect
+            div.leveltext Too High
+      div.item-result
+        div.report-info
+          div.item-info
+            div.data 09/01 : 
+            img.check(src="/img/check-yes.svg", alt="CMU")
+          div.item-info
+            div.itemtext Frequency
+            div.leveltext Too Low
+            div.choosetext Perfect
+            div.leveltext Too High
+          div.item-info
+            div.itemtext Amount
+            div.choosetext Too Low
+            div.leveltext Perfect
+            div.leveltext Too High
+      div.item-result
+        div.report-info
+          div.item-info
+            div.data 09/01 : 
+            img.check(src="/img/check-yes.svg", alt="CMU")
+          div.item-info
+            div.itemtext Frequency
+            div.choosetext Too Low
+            div.leveltext Perfect
+            div.leveltext Too High
+          div.item-info
+            div.itemtext Amount
+            div.leveltext Too Low
+            div.choosetext Perfect
+            div.leveltext Too High
+    
+      
+  include app-footer.pug
