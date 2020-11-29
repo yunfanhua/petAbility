@@ -1,0 +1,15 @@
+extends app.pug
+
+block app-content
+    br
+    div.result-prompt Your Search Result...
+    div.result-container
+        div.dog-result
+            img.result-image(src="../img/dog2.png", alt="CMU")
+            div.all-info
+                div.dog-info
+                    div.dog-info-name Chocolate
+                    div.dog-info-location 2.3 mile
+                div.dog-trait Adult Female; Collie Shepherd
+        button(type='submit', class='btn btn-secondary', id='skip-button') Back
+        include app-footer.pug
