@@ -18,7 +18,7 @@ $(document).on("click", "#next-button", function() {
     let newCount = count+1
     let url = "/survey/" + newCount;
     if (newCount === 6) {
-        url = "/home"
+        url = "/survey/result"
     }
     console.log(url);
     window.location.replace(url);

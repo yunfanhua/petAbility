@@ -27,5 +27,9 @@ router.get('/5', function(req, res, next) {
         choices: ["YES", "NO"], currentProgress:100});
 });
 
+router.get('/result', function(req, res, next) {
+    res.render('survey-result', {title: 'Survey Result'});
+});
+
 
 module.exports = router;
