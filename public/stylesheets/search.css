@@ -27,6 +27,17 @@
     background-color: #535969;
 }
 
+.result-prompt {
+    position: relative;
+    left: calc(50% - 105px);
+    width: 208px;
+    padding-left: 7px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    font-size: 15px;
+    color: #535969;
+}
+
 #primary-button {
     display: flex;
     flex-direction: column;
@@ -52,7 +63,7 @@
 }
 
 .result-container {
-    padding-top: 50px;
+    padding-top: 20px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -65,7 +76,8 @@
     width: 300px;
     padding: 10px;
     display: flex;
-    background-color: #ebbf58;
+    background-color: #535969;
+    color: #ececec;
     border-radius: 10px;
     /*align-items: flex-end;*/
 }

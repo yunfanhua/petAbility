@@ -1,5 +1,8 @@
 extends app.pug
 
+append stylesheets
+  script(src="js/searchInput.js")
+
 block app-content
   div.cover-photo
     img.user-image(src="img/searchCover.jpeg", alt="CMU", width="250px", height="160px")
