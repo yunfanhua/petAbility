@@ -1,0 +1,34 @@
+extends app.pug
+
+append stylesheets
+  link(rel='stylesheet' href='/stylesheets/shareResult.css')
+
+block app-content
+  div.d-flex.justify-content-center
+    div.search
+        h2#title #[strong Select nearby shelters]
+        div.checkbox-group
+            div.checkbox-inline
+                div
+                    input.checkbox-input#shelterA(type = 'checkbox')
+                    label(for='shelterA') Shelter A
+                p.distance 1 mile
+            div.checkbox-inline
+                div
+                    input.checkbox-input#shelterB(type = 'checkbox')
+                    label(for='shelterB') Shelter B
+                p.distance 2 mile
+            div.checkbox-inline
+                div
+                    input.checkbox-input#shelterC(type = 'checkbox')
+                    label(for='shelterC') Shelter C
+                p.distance 3 mile
+            div.checkbox-inline
+                div
+                    input.checkbox-input#shelterD(type = 'checkbox')
+                    label(for='shelterD') Shelter D
+                p.distance 4 mile
+            div.confirm.d-flex
+                button(type='submit', class='btn btn-secondary', id='cancel-button', onclick="location.href='/share/location'") Back
+                button(type='submit', class='btn btn-primary', id='ok-button', onclick = "location.href='/share/form'") Next
+  //- include app-footer.pug
