@@ -1,0 +1,26 @@
+.button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 14px 32px;
+
+    /*position: absolute;*/
+    width: 343px;
+    height: 51px;
+
+    border: 0.5px solid #282f44;
+    background: #ececec;
+    color: #282f44;
+    border-radius: 100px;
+}
+
+
+.vertically-even{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#stats-container {
+    height: 50px;
+}
