@@ -1,0 +1,20 @@
+
+extends app.pug
+
+append stylesheets
+  link(rel='stylesheet' href='/stylesheets/shareResult.css')
+
+block app-content
+  div.d-flex.justify-content-center
+    div.search
+      h2#title #[strong Find Shelters]
+        div.search-group
+          div.label I'M FROM
+          input(type="text" class="form-control" placeholder="94043, CA")
+          div.label WITHIN
+          input(type="text" class="form-control" placeholder="20 miles")
+          br
+          button(type='submit', class='btn btn-primary', id='search-button', onclick = "location.href='/share/shelters'") Search
+          a(href= "/home" id = "later") maybe later
+
+  //- include app-footer.pug

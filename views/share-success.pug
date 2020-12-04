@@ -1,0 +1,16 @@
+
+extends app.pug
+
+append stylesheets
+    link(rel='stylesheet' href='/stylesheets/shareResult.css')
+
+block app-content
+    div.success.d-flex.justify-content-center
+        img.map-image(src="../img/paw-map.png")
+        div.share-result 
+            h2 #[strong SUCCESS!]
+            p Nearby sheleters have received your information and will contact you if opportunities arise.
+        
+        div.confirm
+            br
+            button(type='submit', class='btn btn-primary', id='search-button', onclick = "location.href = '/home'") ok
