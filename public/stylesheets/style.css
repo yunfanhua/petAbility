@@ -8,8 +8,8 @@
     position: relative;
     width: 202px;
     height: 39px;
-    margin-left: calc(50% - 25px);
-    margin-top: -150px;
+    /* margin-left: calc(50% - 25px); */
+    /* margin-top: -150px; */
     /* left: 158px;
     top: 138px; */
     border: 0.5px solid #282f44;
@@ -22,8 +22,8 @@
     /* position: absolute; */
     /* left: 13px; */
     position: relative;
-    margin-left: calc(50% - 195px);
-    margin-top: 20px;
+    /* margin-left: calc(50% - 195px); */
+    /* margin-top: 20px; */
     width: 128px;
     height: 128px;
     border-radius: 100%;
@@ -47,12 +47,12 @@
 .report-container{
     position: relative;
     /* left: calc(50% - 207px); */
-    margin-top: -165px;
-    padding-top: 172px;
+    /* margin-top: -165px;
+    padding-top: 172px; */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 600px;
+    /* height: 600px; */
 }
 .link {
     cursor: pointer;
@@ -60,9 +60,7 @@
 
 .report-result {
     position: relative;
-    left: calc(50% - 207px);
     margin : 0 atuo;
-    width: 414px;
     padding: 10px;
     display: flex;
     background-color: #f0f0f0;
@@ -199,6 +197,16 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 600px;
-    
+    height: 50vh;
+}
+
+hr {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 0;
+    border-top: 1px solid #282f44 !important;
+}
+
+h1, h2{
+    color: #282f44 !important;
 }

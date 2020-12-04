@@ -12,13 +12,12 @@ router.get('/signup', function(req, res, next) {
 });
 
 router.get('/welcome', function(req, res, next) {
-  res.render('welcome');
+  res.render('survey/welcome');
 });
 
 router.get('/skip', function(req, res, next) {
   res.render('skip', {title: 'Home'});
 });
-
 
 router.get('/style', function(req, res, next) {
   res.render('styleGuide');
@@ -29,12 +28,8 @@ router.get('/home', function(req, res, next) {
 });
 
 router.get('/search', function(req, res, next) {
-  res.render('search', {title: 'Pets Near Me'});
+  res.render('search/search', {title: 'Pets Near Me'});
 });
 
-
-router.get('/interact', function(req, res, next) {
-  res.render('interact');
-});
 
 module.exports = router;

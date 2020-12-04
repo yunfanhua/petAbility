@@ -26,12 +26,6 @@
 
 }
 
-.confirm{
-    padding: 20px 0;
-    width: 343px;
-    margin-bottom: 10px;
-    justify-content: space-between;
-}
 
 .share-result{
     padding:20px;
@@ -97,9 +91,7 @@ input[type='checkbox'] {
     height: 20px;
     margin-right: 10px;
 }
-label{
-    font-size:25px;
-}
+
 .distance{
     float: right;
 }
@@ -139,11 +131,7 @@ label{
     min-height: 10rem;
     border-radius: 4px;
 }
-#phone{
-    margin-left:10px;
-    padding: 0 5px;
-    border-radius:4px;
-}
+
 #later{
     font-size: 1rem;
     text-align: center;

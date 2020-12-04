@@ -1,4 +1,4 @@
-extends app.pug
+extends ../app.pug
 
 append stylesheets
     script(src="../js/shareResults.js")
@@ -15,8 +15,8 @@ block app-content
             br
             button(type ='submit', class = 'btn choice-button') Volunteer
             br
-            textarea(id = "comment-box" placeholder="Leave a comment if you would like")
+            textarea.form-control(id = "comment-box" placeholder="Leave a comment if you would like")
         div.confirm.d-flex
-            button(type='submit', class='btn btn-secondary', id='cancel-button', onclick="location.href='/share/shelters'") Back
-            button(type='submit', class='btn btn-primary', id='ok-button', onclick = "location.href='/share/contact'") Next
+            button(type='submit', class='btn btn-secondary', id='cancel-button', onclick="location.href='/share/shelters'").mx-1 Back
+            button(type='submit', class='btn btn-primary', id='ok-button', onclick = "location.href='/share/contact'").mx-1 Next
 //-   include app-footer.pug

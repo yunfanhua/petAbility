@@ -7,7 +7,8 @@ $(document).on("click", ".choice-button", function() {
 $(document).on("click", "#back-button", function() {
     let newCount = count-1
     if (newCount === 0) {
-        newCount = 1
+        window.location.replace("/skip");
+        return;
     }
     let url = "/survey/" + newCount;
     console.log(url);

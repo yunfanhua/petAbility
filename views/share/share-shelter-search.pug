@@ -1,5 +1,5 @@
 
-extends app.pug
+extends ../app.pug
 
 append stylesheets
   link(rel='stylesheet' href='/stylesheets/shareResult.css')
@@ -15,6 +15,6 @@ block app-content
           input(type="text" class="form-control" placeholder="20 miles")
           br
           button(type='submit', class='btn btn-primary', id='search-button', onclick = "location.href='/share/shelters'") Search
-          a(href= "/home" id = "later") maybe later
+          a(href= "/report" id = "later") maybe later
 
   //- include app-footer.pug

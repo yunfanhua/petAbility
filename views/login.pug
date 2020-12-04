@@ -1,20 +1,22 @@
 extends layout
 
 append stylesheets
-    link(rel='stylesheet' href='/stylesheets/search.css')
     script(src='js/login.js')
 
 block content
-    div.cover-photo
-        img.user-image(src="img/logo.png", alt="CMU", width="250px", height="160px")
-    div.search
-        form
-            div.search-group
-                div.label EMAIL
-                input(type="text" class="form-control" placeholder="name@email.com")
-                div.label PASSWORD
-                input(type="text" class="form-control" placeholder="********")
-                br
-                button(type='submit', class='btn btn-primary', id='primary-button') LOG IN
-                div.label#user Don't have an account?
-                    a(href='/signup', style="color: #e6af2e;") Sign up
+    .container
+        div.row(style="padding-top: 100px")
+            img.user-image(src="img/logo.png", alt="CMU", width="250px", height="160px").mx-auto
+        div.row
+            form.mx-auto
+                div.form-group
+                    label Email
+                    input(type="text" class="form-control" placeholder="example@email.com")
+                div.form-group
+                    label Password
+                    input(type="text" class="form-control" placeholder="********")
+                    br
+                    button.btn.btn-primary.btn-block#login-button Log In
+                .label.mx-auto 
+                  span#account-message Don't have an account? &nbsp
+                  span.badge.badge-secondary #[a#sign-up-link Sign up]

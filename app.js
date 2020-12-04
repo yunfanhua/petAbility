@@ -13,6 +13,30 @@ var shareRouter = require('./routes/shareResults');
 
 var app = express();
 
+//sass
+
+var sass = require('node-sass');
+const fs = require('fs');
+
+sass.render({
+    file: 'scss/custom.scss',
+    outFile: 'public/stylesheets/shared.css'
+}, function (err, result) {
+    if (!err) {
+        fs.writeFile('public/stylesheets/shared.css', result.css, function (err) {
+            if (!err) {
+                //file written on disk
+                console.log("css generated");
+            } else {
+                console.log(err);
+            }
+        });
+    } else {
+        console.log(err);
+    }
+});
+
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');

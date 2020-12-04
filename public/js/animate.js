@@ -1,6 +1,5 @@
 import * as THREE from './vendor/three/build/three.module.js';
 
-import Stats from './vendor/three/examples/jsm/libs/stats.module.js';
 import { GUI } from './vendor/three/examples/jsm/libs/dat.gui.module.js';
 
 import { FBXLoader } from './vendor/three/examples/jsm/loaders/FBXLoader.js';
@@ -18,6 +17,10 @@ let actionNames = ['Idle', 'Walk', 'Eat', 'Jump'];
 
 init();
 animate();
+
+export function playAction(action) {
+    fadeToAction(action, 0.5);
+}
 
 function init() {
 

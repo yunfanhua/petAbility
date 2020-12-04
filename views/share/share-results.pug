@@ -1,5 +1,5 @@
 
-extends app.pug
+extends ../app.pug
 
 append stylesheets
     link(rel='stylesheet' href='/stylesheets/shareResult.css')
@@ -12,6 +12,6 @@ block app-content
             p This will help you establish a relationship with nearby shelters
         
         div.confirm.d-flex
-            button(type='submit', class='btn btn-secondary', id='cancel-button', onclick="location.href='/home'") Cancel
+            button(type='submit', class='btn btn-secondary', id='cancel-button', onclick="location.href='/report'") Cancel
             button(type='submit', class='btn btn-primary', id='ok-button', onclick = "location.href='/share/location'") Ok
 //-   include app-footer.pug
