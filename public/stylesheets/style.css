@@ -4,46 +4,55 @@
     flex-direction: column;
     align-items: center;
     padding: 14px 32px; */
-    position: absolute;
+    /* position: absolute; */
+    position: relative;
     width: 202px;
     height: 39px;
-    left: 158px;
-    top: 138px;
+    margin-left: calc(50% - 25px);
+    margin-top: -150px;
+    /* left: 158px;
+    top: 138px; */
     border: 0.5px solid #282f44;
     background: #282f44;
     border-radius: 100px;
+    display:inline;
 }
 
 #potrait-image{
-    position: absolute;
-    left: 13px;
-    top: 90px;
+    /* position: absolute; */
+    /* left: 13px; */
+    position: relative;
+    margin-left: calc(50% - 195px);
+    margin-top: 20px;
     width: 128px;
     height: 128px;
     border-radius: 100%;
     border: 0.5px solid #282f44;
+    display:inline;
 }
 #line{
-    display: flex;
+    
+    /* display: flex; */
     flex-direction: column;
     align-items: center;
     padding: 0px 16px;
-
-    position: absolute;
-    width: 414px;
+    position: relative;
+    /* position: absolute; */
+    /* width: 414px; */
     height: 4px;
-    left: 0px;
-    top: 235px;
+    /* left: 0px; */
+    margin-top: -15px;
     background:#bdbdbd;
 }
 .report-container{
-    
+    position: relative;
+    left: calc(50% - 207px);
+    margin-top: -165px;
     padding-top: 172px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     height: 600px;
-    
 }
 .link {
     cursor: pointer;
@@ -51,6 +60,7 @@
 
 .report-result {
     position: relative;
+    left: calc(50% - 207px);
     margin : 0 atuo;
     width: 414px;
     padding: 10px;
@@ -91,8 +101,8 @@
     align-items: center;
     padding: 0px 16px;
 
-    position: absolute;
-    width: 414px;
+    
+    
     height: 4px;
     left: 0px;
     top: 180px;
@@ -183,8 +193,9 @@
     /*align-items: flex-end;*/
 }
 .item-container{
-    
-    padding-top: 20px;
+    position: relative;
+    left: calc(50% - 207px);
+    padding-top: 10px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;

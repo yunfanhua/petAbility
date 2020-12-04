@@ -1,0 +1,22 @@
+extends app.pug
+
+append stylesheets
+    script(src="../js/shareResults.js")
+    link(rel='stylesheet' href='/stylesheets/shareResult.css')
+
+block app-content
+    div.d-flex.justify-content-center
+    div.search
+        h2#title #[strong I want to...]
+        div.choice
+            button(type ='submit', class = 'btn choice-button') Adopt
+            br
+            button(type ='submit', class = 'btn choice-button') Foster
+            br
+            button(type ='submit', class = 'btn choice-button') Volunteer
+            br
+            textarea(id = "comment-box" placeholder="Leave a comment if you would like")
+        div.confirm.d-flex
+            button(type='submit', class='btn btn-secondary', id='cancel-button', onclick="location.href='/share/shelters'") Back
+            button(type='submit', class='btn btn-primary', id='ok-button', onclick = "location.href='/share/contact'") Next
+//-   include app-footer.pug

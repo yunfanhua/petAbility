@@ -1,0 +1,29 @@
+extends app.pug
+
+append stylesheets
+    link(rel='stylesheet' href='/stylesheets/survey.css')
+    script(src='https://kit.fontawesome.com/6b38ac7b93.js', crossorigin='anonymous')
+    script(src="../js/survey.js")
+
+
+block app-content
+    br
+    div.progress
+        div(class='progress-bar', role='progressbar', style="width:"+currentProgress+"%",
+            aria-valuenow=currentProgress, aria-valuemin="0", aria-valuemax="100")
+    br
+    div.text-center.question
+        h3=question
+
+
+    div.choice
+        for item in choices
+            div.d-flex.justify-content-center
+                button(type='submit', class='btn choice-button')=item
+            br
+
+    div.nextBack.fixed-bottom
+        div.progress-buttons.d-flex.justify-content-center
+            button(type='submit', class='btn btn-secondary', id='back-button') Back
+            button(type='submit', class='btn btn-primary', id='next-button') Next
+
