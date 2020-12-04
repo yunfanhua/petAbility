@@ -1,5 +1,17 @@
 extends app.pug
-
+append stylesheets
+    link(rel='stylesheet' href='/stylesheets/home.css')
 block app-content
-  include animation.pug
   include app-footer.pug
+
+  div.container
+    include animation.pug
+    #interact-container(style="height: 40vh;")
+    #stats-container
+      div bounding level
+    .container
+      button.button.my-2 Interact
+      button.button.my-2 Customize
+      a.btn.btn-secondary.my-2(href="/report") Interact
+      a.btn.btn-secondary.my-2(href="/report") Customize
+      a.btn.btn-secondary.my-2(href="/report") Report

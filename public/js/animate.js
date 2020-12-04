@@ -22,7 +22,7 @@ animate();
 function init() {
 
     container = document.getElementById('interact-container');
-    document.body.appendChild(container);
+    //document.body.appendChild(container);
 
     camera = new THREE.PerspectiveCamera(25, 2, 1, 1000);
     camera.position.set(- 5, 3, 10);
@@ -104,13 +104,15 @@ function setModelMaterial(mesh) {
     gradientMap.minFilter = THREE.NearestFilter;
     gradientMap.magFilter = THREE.NearestFilter;
     gradientMap.generateMipmaps = false;
-    
+    const texture = new THREE.TextureLoader().load( 'models/Dog_chocolate.png');
+
     let toonMaterial = new THREE.MeshToonMaterial ({
         color: new THREE.Color( 'white'),
         gradientMap: gradientMap,
         skinning: true,
         map: mesh.material.map,
     });
+    console.log(mesh.material.map, texture)
     mesh.material =  toonMaterial;
     console.log(mesh.material)   
 
