@@ -1,0 +1,50 @@
+extends app.pug
+ 
+block app-content
+  div.potrait-photo
+    img.rounded-circle(src='img/portrait.svg' alt='Cinque Terre' width='128' height='128' id = "potrait-image")
+  div.sharereport-button
+    button(type='submit', class='btn btn-primary', id='share-button') Share Report
+  ul.nav.nav-list(id = "line")
+    li.divider
+  div.report-container
+    a.link(href='/report/feed')
+      div.report-result
+        img.report-image(src="img/feed.jpg", alt="CMU")
+        div.report-info
+          div.item-info
+            div.item-info-name Feed
+            div.item-info-score 80/100
+          div.score-bar
+            img.eighty-image(src="img/eighty.svg", alt="CMU")
+    a.link(href='/report/exercise')
+      div.report-result
+        img.report-image(src="img/exercise.jpg", alt="CMU")
+        div.report-info
+          div.item-info
+            div.item-info-name Exercise
+            div.item-info-score 30/100
+          div.score-bar
+            img.thirty-image(src="img/thirty.svg", alt="CMU")
+    a.link(href='/report/hygiene')
+      div.report-result
+        img.report-image(src="img/hygiene.jpeg", alt="CMU")
+        div.report-info
+          div.item-info
+            div.item-info-name Hyginene
+            div.item-info-score 90/100
+          div.score-bar
+            img.ninty-image(src="img/ninty.svg", alt="CMU")
+    a.link(href='/report/happiness')
+      div.report-result
+        img.report-image(src="img/happiness.png", alt="CMU")
+        div.report-info
+          div.item-info
+            div.item-info-name Happiness
+            div.item-info-score 50/100
+          div.score-bar
+            img.fifty-image(src="img/fifty.svg", alt="CMU")
+  
+  
+
+  include app-footer.pug
