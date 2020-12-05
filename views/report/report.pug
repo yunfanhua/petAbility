@@ -1,54 +1,83 @@
 extends ../app.pug
 
 append stylesheets
-  link(rel='stylesheet' href='/stylesheets/style.css')
+  //- link(rel='stylesheet' href='/stylesheets/style.css')
+  link(rel='stylesheet' href='/stylesheets/report.css')
+
 
 block app-content
-  .container
-    .row
-      .col.d-flex.justify-content-center
-        img.rounded-circle.my-2(src='img/portrait.svg' alt='Cinque Terre' width='128' height='128' id = "potrait-image" )
-      .col.d-flex.justify-content-center
-        button(class='btn btn-primary' id='share-button' onclick="window.location.href='/share'").my-2 Share Report
-  hr
+  .container-fluid.h-100
+    .row.bg-primary
+      .col-3.text-white.text-center
+        .container.py-4
+          img.rounded-circle(src='img/portrait.svg' alt='Cinque Terre' width='64' height='64' id = "potrait-image" )
+      .col.p-1.d-flex.align-items-center
+        .container.text-center
+          button(class='btn btn-outline-secondary' onclick="window.location.href='/share'").my-2 Share Report
 
-  div.report-container.container
-    a.link(href='/report/feed')
-      div.report-result
-        img.report-image(src="img/feed.jpg", alt="CMU")
-        div.report-info
-          div.item-info
-            div.item-info-name Feed
-            div.item-info-score 80/100
-          div.score-bar
-            img.eighty-image(src="img/eighty.svg", alt="CMU")
-    a.link(href='/report/exercise')
-      div.report-result
-        img.report-image(src="img/exercise.jpg", alt="CMU")
-        div.report-info
-          div.item-info
-            div.item-info-name Exercise
-            div.item-info-score 30/100
-          div.score-bar
-            img.thirty-image(src="img/thirty.svg", alt="CMU")
-    a.link(href='/report/hygiene')
-      div.report-result
-        img.report-image(src="img/hygiene.jpeg", alt="CMU")
-        div.report-info
-          div.item-info
-            div.item-info-name Hyginene
-            div.item-info-score 90/100
-          div.score-bar
-            img.ninty-image(src="img/ninty.svg", alt="CMU")
-    a.link(href='/report/happiness')
-      div.report-result
-        img.report-image(src="img/happiness.png", alt="CMU")
-        div.report-info
-          div.item-info
-            div.item-info-name Happiness
-            div.item-info-score 50/100
-          div.score-bar
-            img.fifty-image(src="img/fifty.svg", alt="CMU")
+    a(href='/report/feed')
+      .row.bg-success.my-1
+        .col-3.text-white.text-center.pr-0
+          .container
+            p.pt-3 #[span #[i.fas.fa-utensils.fa-2x]] #[br] #[span Feeding]
+        .col.p-1.d-flex.align-items-center
+          .container
+            .progress.bg-white
+              .progress-bar(style="width: 50%;").bg-success 50%
+    .row.bg-success
+      .col-3.text-secondary.text-center.pr-0
+        .container
+          p.pt-3 #[span #[i.fas.fa-heart.fa-2x]] #[br] #[span Feeding]
+      .col.p-1.d-flex.align-items-center
+        .container
+          .progress.bg-primary
+            .progress-bar(style="width: 50%;").bg-secondary 50%
+    .row 
+      .col-3.text-secondary.text-center.pr-0
+        .container
+          p.pt-3 #[span #[i.fas.fa-utensils.fa-2x]] #[br] #[span Feeding]
+      .col.p-1.d-flex.align-items-center
+        .container
+          .progress.bg-primary
+            .progress-bar(style="width: 50%;").bg-secondary 50%
+
+  //- div.report-container.container
+  //-   a.link(href='/report/feed')
+  //-     div.report-result
+  //-       img.report-image(src="img/feed.jpg", alt="CMU")
+  //-       div.report-info
+  //-         div.item-info
+  //-           div.item-info-name Feed
+  //-           div.item-info-score 80/100
+  //-         div.score-bar
+  //-           img.eighty-image(src="img/eighty.svg", alt="CMU")
+  //-   a.link(href='/report/exercise')
+  //-     div.report-result
+  //-       img.report-image(src="img/exercise.jpg", alt="CMU")
+  //-       div.report-info
+  //-         div.item-info
+  //-           div.item-info-name Exercise
+  //-           div.item-info-score 30/100
+  //-         div.score-bar
+  //-           img.thirty-image(src="img/thirty.svg", alt="CMU")
+  //-   a.link(href='/report/hygiene')
+  //-     div.report-result
+  //-       img.report-image(src="img/hygiene.jpeg", alt="CMU")
+  //-       div.report-info
+  //-         div.item-info
+  //-           div.item-info-name Hyginene
+  //-           div.item-info-score 90/100
+  //-         div.score-bar
+  //-           img.ninty-image(src="img/ninty.svg", alt="CMU")
+  //-   a.link(href='/report/happiness')
+  //-     div.report-result
+  //-       img.report-image(src="img/happiness.png", alt="CMU")
+  //-       div.report-info
+  //-         div.item-info
+  //-           div.item-info-name Happiness
+  //-           div.item-info-score 50/100
+  //-         div.score-bar
+  //-           img.fifty-image(src="img/fifty.svg", alt="CMU")
 
 
 
