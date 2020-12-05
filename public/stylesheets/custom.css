@@ -1,5 +1,13 @@
 /* Global Bootstrap Customization */
 .btn {
     border-radius: 100px;
-    min-width: 240px;
+    min-width: 200px;
+    min-height: 51px;
+}
+
+body {
+    background-color:#ececec;
+    width: 100vw;
+    height:100vh;
+    overflow:hidden;
 }

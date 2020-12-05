@@ -1,7 +1,7 @@
 extends ../app.pug
 
 append stylesheets
-    link(rel='stylesheet' href='/stylesheets/survey.css')
+    //- //link(rel='stylesheet' href='/stylesheets/survey.css')
     script(src='https://kit.fontawesome.com/6b38ac7b93.js', crossorigin='anonymous')
 
 
@@ -11,15 +11,15 @@ block app-content
     br
     div.description-header.text-center
         h3 Based on the survey your dream pet is...
-    div.description-body.text-sm-center
-        ul
-            li Type: Dog
-            li Age: Adult
-            li Lifestyle: Active
-            li Trait: Energetic, House-trained
+    .container
+        .mx-4.mt-5
+            .row #[p Type: Dog]
+            .row #[p Age: Adult]
+            .row #[p  Lifestyle: Active]
+            .row #[p Trait: Energetic, House-trained] 
 
-    div.nextBack.fixed-bottom
+    div.fixed-bottom.pb-5
         div.progress-buttons.d-flex.justify-content-center
             button(type='submit', class='btn btn-secondary', id='back-button',
-                onclick="location.href='/home'") Skip
-            button(type='submit', class='btn btn-primary', id='next-button') Customize
+                onclick="location.href='/home'").mx-2 Skip
+            button(type='submit', class='btn btn-primary', onclick="window.location.href='/home#customize'").mx-2 Customize

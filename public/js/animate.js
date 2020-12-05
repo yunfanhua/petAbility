@@ -22,6 +22,18 @@ export function playAction(action) {
     fadeToAction(action, 0.5);
 }
 
+export function changeSize(size) {
+    let mapping = {
+        'small': 0.08,
+        'medium': 0.1,
+        'large': 0.12
+    }
+    model.scale.x = mapping[size];
+    model.scale.y = mapping[size];
+    model.scale.z = mapping[size];
+
+}
+
 function init() {
 
     container = document.getElementById('interact-container');
@@ -78,7 +90,7 @@ function init() {
     renderer.setPixelRatio(window.devicePixelRatio);
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.outputEncoding = THREE.sRGBEncoding;
-    container.appendChild(renderer.domElement);
+    container.insertBefore(renderer.domElement, container.firstChild)
     effect = new OutlineEffect( renderer, {defaultThickness: 0.006} );
 
     window.addEventListener('resize', resizeCanvasToDisplaySize, false);
@@ -100,6 +112,18 @@ function init() {
     //container.appendChild(stats.dom);
 }
 
+export function changeColor(color) {
+    let mappings = {
+        'yellow': 'Dog_A',
+        'brown': 'Dog_chocolate',
+        'silver': 'Dog_A_silver',
+        'cherry': 'Dog_A_cherry'
+    }
+    const texture = new THREE.TextureLoader().load( `models/${mappings[color]}.png`);
+    texture.encoding = THREE.sRGBEncoding;
+    model.children[1].material.map = texture;
+}
+
 function setModelMaterial(mesh) {
     console.log(mesh.material)   
     let colors = Uint8Array.from([1, 200, 255]);
@@ -107,13 +131,14 @@ function setModelMaterial(mesh) {
     gradientMap.minFilter = THREE.NearestFilter;
     gradientMap.magFilter = THREE.NearestFilter;
     gradientMap.generateMipmaps = false;
-    const texture = new THREE.TextureLoader().load( 'models/Dog_chocolate.png');
-
+    const texture = new THREE.TextureLoader().load( 'models/Dog_A.png');
+    texture.encoding = THREE.sRGBEncoding;
     let toonMaterial = new THREE.MeshToonMaterial ({
         color: new THREE.Color( 'white'),
         gradientMap: gradientMap,
         skinning: true,
-        map: mesh.material.map,
+        map: texture
+        //map: mesh.material.map,
     });
     console.log(mesh.material.map, texture)
     mesh.material =  toonMaterial;
@@ -126,11 +151,11 @@ function createGUI(model, animations) {
     //, 'Idle', 'Running', 'Dance', 'Death', 'Sitting', 'Standing'
     //const emotes = ['Jump', 'Yes', 'No', 'Wave', 'Punch', 'ThumbsUp'];
 
-    gui = new GUI({
-        autoPlace : true
-    });
+    // gui = new GUI({
+    //     autoPlace : true
+    // });
 
-    gui.domElement.id = "gui"
+    // gui.domElement.id = "gui"
     mixer = new THREE.AnimationMixer(model);
 
     actions = {};
@@ -144,17 +169,17 @@ function createGUI(model, animations) {
 
     // states
 
-    const statesFolder = gui.addFolder('Controls');
+    //const statesFolder = gui.addFolder('Controls');
 
-    const clipCtrl = statesFolder.add(api, 'state').options(states);
+    // const clipCtrl = statesFolder.add(api, 'state').options(states);
 
-    clipCtrl.onChange(function () {
+    // clipCtrl.onChange(function () {
 
-        fadeToAction(api.state, 0.5);
+    //     fadeToAction(api.state, 0.5);
 
-    });
+    // });
 
-    statesFolder.open();
+   // statesFolder.open();
 
     activeAction = actions['Idle'];
     activeAction.play();

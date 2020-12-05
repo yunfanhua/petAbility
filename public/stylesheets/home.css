@@ -1,9 +1,43 @@
-.vertically-even{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+.food-option p {
+    pointer-events: none;
+    border: solid #fff;
+
 }
 
-#stats-container {
-    height: 50px;
+.food-option.selected p{
+    border: solid;
+    border-radius: 30px;
+}
+
+span.customize-option.selected {
+    border: solid;
+    border-radius: 10px;
+}
+
+span.customize-option {
+    border: solid white;
+    border-radius: 10px;
+}
+
+.customize-option li {
+    position: relative;
+    /* left: 2px; */
+    pointer-events: none;
+}
+
+
+.food-option {
+    display:flex;
+    align-items:center;
+}
+
+.text-brown {
+    color: #433333;
+}
+.text-cherry{
+    color: rgb(230, 78, 103);
+}
+
+.text-silver{
+    color: #aaa;
 }
