@@ -117,9 +117,9 @@ $(document).ready(()=>{
 
     $('#stop-walking-button').click(()=>{
         walking = false;
-        setStats();
         let progress = currentWalkDistance;
         stats.level += progress;
+        setStats();
         if (current == walkingMenu)
             $('#summary-text').text(`You walked ${progress.toFixed(2)} miles together!`);
         switchTab(current, summaryMenu);
@@ -148,6 +148,7 @@ $(document).ready(()=>{
         } else if (feedFood == 'water') {
             targetStats.thirst = Math.min(100, stats.hunger + 50);
         }
+        stats.level += 0.5;
         $('#summary-text').text(`Your pet is happy!`);
         switchTab(current, summaryMenu);
         interpolateStats(targetStats);
@@ -198,7 +199,7 @@ async function interpolateStats(targetStats) {
         stats.hunger = originalStas.hunger + (targetStats.hunger - originalStas.hunger)*(i/100);
         stats.thirst = originalStas.thirst + (targetStats.thirst - originalStas.thirst)*(i/100);
         setStats();
-        await sleep(10)
+        await sleep(10);
     }
     playAction('Idle');
     playAction('Jump');

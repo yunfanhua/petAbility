@@ -10,7 +10,7 @@ let container, stats, clock, gui, mixer, actions, activeAction, previousAction;
 let camera, scene, renderer, model, effect;
 let sky, sun;
 
-let scale = 0.1;
+let scale = 0.12;
 const api = { state: 'Idle' };
 let actionNames = ['Idle', 'Walk', 'Eat', 'Jump'];
 
@@ -24,9 +24,9 @@ export function playAction(action) {
 
 export function changeSize(size) {
     let mapping = {
-        'small': 0.08,
-        'medium': 0.1,
-        'large': 0.12
+        'small': 0.1,
+        'medium': 0.12,
+        'large': 0.14
     }
     model.scale.x = mapping[size];
     model.scale.y = mapping[size];
@@ -103,7 +103,7 @@ function init() {
     texture.wrapS = THREE.RepeatWrapping;
     texture.wrapT = THREE.RepeatWrapping;
     texture.repeat.set(400,400)
-    const mesh = new THREE.Mesh(new THREE.PlaneBufferGeometry(2000, 2000), new THREE.MeshPhongMaterial({ color: 0x999999, depthWrite: false, map: texture }));
+    const mesh = new THREE.Mesh(new THREE.PlaneBufferGeometry(4000, 4000), new THREE.MeshPhongMaterial({ color: 0x999999, depthWrite: false, map: texture }));
 
     mesh.rotation.x = - Math.PI / 2;
     scene.add(mesh);

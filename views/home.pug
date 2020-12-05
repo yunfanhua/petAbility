@@ -7,90 +7,91 @@ block app-content
 
   include animation.pug
   .container.bg-primary
-    #interact-container.pt-3(style="height: 40vh;")
+    #interact-container.pt-3(style="height: 35vh;")
     #stats-container.bg-primary.p-1
       .row.p-0.text-center
         .col.text-white #[i.fas.fa-paw] #[span#level-text 1]
         .col.text-secondary #[i.fas.fa-bolt] #[span#energy-text 100]
         .col.text-success #[i.fas.fa-utensils] #[span#hunger-text 80]
         .col.text-info #[i.fas.fa-tint] #[span#thirst-text 80]
-  .container.pt-5
-    #main-menu(style='display:none')
+  .container.pt-3
+    #main-menu(style='display:none').vertically-even
       .row
         button.btn.btn-outline-primary.my-2.mx-auto#interact-button #[li.fas.fa-football-ball] Interact
       .row
         button.btn.btn-outline-primary.my-2.mx-auto#customize-button #[li.fas.fa-edit]  Customize
       .row
         button.btn.btn-outline-primary.my-2(onclick="window.location.href='/report'").mx-auto #[li.fas.fa-scroll] View My Report
-    #interact-menu(style="display:none")
+    #interact-menu(style="display:none").vertically-even
       .row
         button.btn.btn-outline-primary.my-2.mx-auto#walk-button #[li.fas.fa-dog] Take a Walk
       .row
         button.btn.btn-outline-primary.my-2.mx-auto#feed-button #[li.fas.fa-utensils]  Feed
       .row
         button.btn.btn-secondary.my-2.mx-auto.back-button Cancel
-    #walk-settings-menu(style="display:none")
+    #walk-settings-menu(style="display:none").vertically-even
       .row
         p.mx-auto How far would you like to walk?
         .form-group.mx-auto 
-          .input-group.mb-3
+          .input-group
             input.form-control.text-center(value="1")#walk-distance
             .input-group-append
               span.input-group-text miles
-        .row
-        button.btn.btn-primary.my-2.mx-auto#commit-walk-button Let's Go!
       .row
-        button.btn.btn-secondary.my-2.mx-auto.back-button Cancel
+        button.btn.btn-primary.my-1.mx-auto#commit-walk-button Let's Go!
+      .row
+        button.btn.btn-secondary.my-1.mx-auto.back-button Cancel
 
     #walking-menu(style="display:none")
       .progress.bg-primary
         .progress-bar.bg-secondary#walk-progress-bar
-      .row
-        p.mx-auto#walk-progress-text
-      .row
-        button.btn.btn-primary.my-2.mx-auto#stop-walking-button Stop Early
+      .vertically-even
+        .row
+          p.mx-auto#walk-progress-text
+        .row
+          button.btn.btn-primary.my-2.mx-auto#stop-walking-button Stop Early
 
-    #summary-menu(style="display:none")
+    #summary-menu(style="display:none").vertically-even
       .row
         p.mx-auto#summary-text
       .row
         p.mx-auto Your bonding has grown!
         button.btn.btn-secondary.my-2.mx-auto.back-button Yes!
     
-    #feed-settings-menu(style="display:none")
+    #feed-settings-menu(style="display:none").vertically-even
       .row
         p.mx-auto What would you like to feed?
-      .row.text-center
+      .row.text-center.w-100
         .col.text-success.food-option(food="food")
-          p.p-2.mx-auto #[i.fas.fa-utensils] RoarBoost
+          p.p-1.mx-auto #[i.fas.fa-utensils] RoarBoost
         .col.text-info.food-option(food="water")
-          p.p-2.mx-auto #[i.fas.fa-tint] FUJI Water
+          p.p-1.mx-auto #[i.fas.fa-tint] FUJI Water
       .row
-        button.btn.btn-primary.my-2.mx-auto#commit-feed-button(disabled) Feed
+        button.btn.btn-primary.my-1.mx-auto#commit-feed-button(disabled) Feed
       .row
-        button.btn.btn-secondary.my-2.mx-auto.back-button Cancel
+        button.btn.btn-secondary.my-1.mx-auto.back-button Cancel
 
-    #customize-menu(style='display:none')
+    #customize-menu(style='display:none').vertically-even
       .container.px-4
-        .row.m-2.py-2
+        .row.m-2.py-1
           .col-2
-            span.m-2.text-primary #[li.fas.fa-palette.fa-lg]
+            span.m-1.text-primary #[li.fas.fa-palette.fa-lg]
           .col 
-            span.p-2.text-secondary.customize-option(option-type="color", option-value="yellow") #[li.fas.fa-circle]
-            span.p-2.text-brown.customize-option(option-type="color", option-value="brown") #[li.fas.fa-circle]
-            span.p-2.text-silver.customize-option(option-type="color", option-value="silver") #[li.fas.fa-circle]
-            span.p-2.text-cherry.customize-option(option-type="color", option-value="cherry") #[li.fas.fa-circle]
+            span.p-1.text-secondary.customize-option(option-type="color", option-value="yellow") #[li.fas.fa-circle]
+            span.p-1.text-brown.customize-option(option-type="color", option-value="brown") #[li.fas.fa-circle]
+            span.p-1.text-silver.customize-option(option-type="color", option-value="silver") #[li.fas.fa-circle]
+            span.p-1.text-cherry.customize-option(option-type="color", option-value="cherry") #[li.fas.fa-circle]
 
-        .row.m-2.py-2
+        .row.m-2.py-1
           .col-2
-            span.m-2.text-primary #[li.fas.fa-compress-alt.fa-lg]
+            span.m-1.text-primary #[li.fas.fa-compress-alt.fa-lg]
           .col
             span.p-1.customize-option(option-type="size", option-value="small") small
             span.p-1.customize-option(option-type="size", option-value="medium") medium
             span.p-1.customize-option(option-type="size", option-value="large") large
 
         .row
-          button.btn.btn-primary.my-2.mx-auto#commit-customize-button Confirm
+          button.btn.btn-primary.my-1.mx-auto#commit-customize-button Confirm
         .row
-          button.btn.btn-secondary.my-2.mx-auto#cancel-customize-button Cancel
+          button.btn.btn-secondary.my-1.mx-auto#cancel-customize-button Cancel
   include app-footer.pug

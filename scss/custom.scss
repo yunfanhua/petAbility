@@ -2,7 +2,11 @@
 //CUSTOM
 $theme-colors: (
   "primary": #282f44,
-  "secondary": #e6af2e
+  "secondary": #e6af2e,
+  "white": #ececec
+);
+
+$colors:(
 );
 
 @import "node_modules/bootstrap/scss/bootstrap";
