@@ -1,6 +1,8 @@
 extends ../app.pug
  
 block app-content
+  div.menu-button#menu-button.backbutton(onclick="window.location.href='/report'")
+    i.fas.fa-chevron-left#menu-back-button  
   div.report-result
     img.report-image(src="/img/feed.jpg", alt="CMU")
     div.report-info
@@ -33,7 +35,7 @@ block app-content
       div.item-result
         div.report-info
           div.item-info
-            div.data 09/01 : 
+            div.data 09/02 : 
             img.check(src="/img/check-no.svg", alt="CMU")
           div.item-info
             div.itemtext Frequency
@@ -48,7 +50,7 @@ block app-content
       div.item-result
         div.report-info
           div.item-info
-            div.data 09/01 : 
+            div.data 09/03 : 
             img.check(src="/img/check-yes.svg", alt="CMU")
           div.item-info
             div.itemtext Frequency
@@ -60,21 +62,7 @@ block app-content
             div.choosetext Too Low
             div.leveltext Perfect
             div.leveltext Too High
-      //- div.item-result
-      //-   div.report-info
-      //-     div.item-info
-      //-       div.data 09/01 : 
-      //-       img.check(src="/img/check-yes.svg", alt="CMU")
-      //-     div.item-info
-      //-       div.itemtext Frequency
-      //-       div.choosetext Too Low
-      //-       div.leveltext Perfect
-      //-       div.leveltext Too High
-      //-     div.item-info
-      //-       div.itemtext Amount
-      //-       div.leveltext Too Low
-      //-       div.choosetext Perfect
-      //-       div.leveltext Too High
+
     
       
   include ../app-footer.pug

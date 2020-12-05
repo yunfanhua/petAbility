@@ -210,3 +210,20 @@ hr {
 h1, h2{
     color: #282f44 !important;
 }
+
+.backbutton{
+    position: absolute;
+    top : 15px;
+    left: 20px;
+
+}
+#back-button {
+    background: #ececec;
+    color: #ececec;
+}
+
+#menu-back-button {
+    color: #ececec;
+}
+
+
