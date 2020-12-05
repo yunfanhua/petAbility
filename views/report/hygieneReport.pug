@@ -1,8 +1,11 @@
 extends ../app.pug
- 
+
+append stylesheets
+  link(rel='stylesheet' href='/stylesheets/style.css')
+
 block app-content
   div.menu-button#menu-button.backbutton(onclick="window.location.href='/report'")
-      i.fas.fa-chevron-left#menu-back-button  
+      i.fas.fa-chevron-left#menu-back-button
   div.report-result
     img.report-image(src="/img/hygiene.jpeg", alt="CMU")
     div.report-info
@@ -11,16 +14,16 @@ block app-content
             div.item-info-score 90/100
         div.score-bar
             img.eighty-image(src="/img/ninty.svg", alt="CMU")
-    
 
-  
+
+
   ul.nav.nav-list(id = "line-feed")
     li.divider
   div.item-container
       div.item-result
         div.report-info
           div.item-info
-            div.data 09/01 : 
+            div.data 09/01 :
             img.check(src="/img/check-yes.svg", alt="CMU")
           div.item-info
             div.itemtext Frequency
@@ -35,7 +38,7 @@ block app-content
       div.item-result
         div.report-info
           div.item-info
-            div.data 09/02 : 
+            div.data 09/02 :
             img.check(src="/img/check-no.svg", alt="CMU")
           div.item-info
             div.itemtext Frequency
@@ -50,7 +53,7 @@ block app-content
       div.item-result
         div.report-info
           div.item-info
-            div.data 09/03 : 
+            div.data 09/03 :
             img.check(src="/img/check-yes.svg", alt="CMU")
           div.item-info
             div.itemtext Frequency
@@ -65,7 +68,7 @@ block app-content
       div.item-result
         div.report-info
           div.item-info
-            div.data 09/04 : 
+            div.data 09/04 :
             img.check(src="/img/check-yes.svg", alt="CMU")
           div.item-info
             div.itemtext Frequency
@@ -77,6 +80,6 @@ block app-content
             div.leveltext Too Low
             div.choosetext Perfect
             div.leveltext Too High
-    
-      
+
+
   include ../app-footer.pug

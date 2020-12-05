@@ -9,4 +9,17 @@ $theme-colors: (
 $colors:(
 );
 
+.progress{
+  margin-left: 10px;
+  margin-right: 10px;
+  height: 15px;
+  border-radius: 10px;
+}
+
+.progress-bar{
+  margin: 3px;
+  border-radius: 10px;
+  background-color: #202636;
+}
+
 @import "node_modules/bootstrap/scss/bootstrap";
