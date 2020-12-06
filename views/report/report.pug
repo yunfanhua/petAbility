@@ -7,7 +7,7 @@ append stylesheets
 
 block app-content
   .container-fluid.h-100
-    .row.bg-primary
+    .row.bg-brightgrey
       .col-3.text-white.text-center
         .container.py-4
           img.rounded-circle(src='img/default_pet.png' alt='Cinque Terre' width='64' height='64' id = "potrait-image" )
@@ -16,30 +16,41 @@ block app-content
           button(class='btn btn-outline-secondary' onclick="window.location.href='/share'").my-2 Share Report
 
     a(href='/report/feed')
-      .row.bg-success.my-1
-        .col-3.text-white.text-center.pr-0
+      .row.bg-secondary-yellow.my-1
+        .col-3.text-pp.text-center.pr-0
           .container
             p.pt-3 #[span #[i.fas.fa-utensils.fa-2x]] #[br] #[span Feeding]
         .col.p-1.d-flex.align-items-center
           .container
-            .progress.bg-white
-              .progress-bar(style="width: 50%;").bg-success 50%
-    .row.bg-success
-      .col-3.text-secondary.text-center.pr-0
-        .container
-          p.pt-3 #[span #[i.fas.fa-heart.fa-2x]] #[br] #[span Feeding]
-      .col.p-1.d-flex.align-items-center
-        .container
-          .progress.bg-primary
-            .progress-bar(style="width: 50%;").bg-secondary 50%
-    .row 
-      .col-3.text-secondary.text-center.pr-0
-        .container
-          p.pt-3 #[span #[i.fas.fa-utensils.fa-2x]] #[br] #[span Feeding]
-      .col.p-1.d-flex.align-items-center
-        .container
-          .progress.bg-primary
-            .progress-bar(style="width: 50%;").bg-secondary 50%
+            .progress.bg-jin
+              .progress-bar(style="width: 80%;").bg-blbl 80%
+    a(href='/report/exercise')
+      .row.bg-secondary-yellow.my-1
+        .col-3.text-pp.text-center.pr-0
+          .container
+            p.pt-3 #[span #[i.fas.fa-paw.fa-2x]] #[br] #[span Exercise]
+        .col.p-1.d-flex.align-items-center
+          .container
+            .progress.bg-jin
+              .progress-bar(style="width: 30%;").bg-blbl 30%
+    a(href='/report/hygiene')
+      .row.bg-secondary-yellow.my-1
+        .col-3.text-pp.text-center.pr-0
+          .container
+            p.pt-3 #[span #[i.fas.fa-shower.fa-2x]] #[br] #[span Hygiene]
+        .col.p-1.d-flex.align-items-center
+          .container
+            .progress.bg-jin
+              .progress-bar(style="width: 90%;").bg-blbl 90%
+    a(href='/report/happiness')
+      .row.bg-secondary-yellow.my-1
+        .col-3.text-pp.text-center.pr-0
+          .container
+            p.pt-3 #[span #[i.fas.fa-heart.fa-2x]] #[br] #[span Happiness]
+        .col.p-1.d-flex.align-items-center
+          .container
+            .progress.bg-jin
+              .progress-bar(style="width: 50%;").bg-blbl 50%
 
   //- div.report-container.container
   //-   a.link(href='/report/feed')

@@ -1,85 +1,78 @@
 extends ../app.pug
 
 append stylesheets
-  link(rel='stylesheet' href='/stylesheets/style.css')
+  link(rel='stylesheet' href='/stylesheets/report.css')
 
 block app-content
-  div.menu-button#menu-button.backbutton(onclick="window.location.href='/report'")
-      i.fas.fa-chevron-left#menu-back-button
-  div.report-result
-    img.report-image(src="/img/happiness.png", alt="CMU")
-    div.report-info
-        div.item-info
-            div.item-info-name Happiness
-            div.item-info-score 50/100
-        div.score-bar
-            img.eighty-image(src="/img/fifty.svg", alt="CMU")
+  .container-fluid.h-100
+    .row.bg-secondary-yellow
+      .col-3.text-pp.text-center.pr-0
+        .container
+          p.pt-3 #[span #[i.fas.fa-heart.fa-2x]] #[br] #[span Happiness]
+      .col.p-1.d-flex.align-items-center
+        .container
+          .progress.bg-jin
+            .progress-bar(style="width: 50%;").bg-blbl 50%
+    
 
+    .row.bg-white.my-1
+      .col-4.text-pp.text-center.pr-0
+        .container
+          p.pt-3 #[span #[i.fas.fa-calendar.fa-2x]] #[br] #[span 10/12/20]
+      .col-8.d-flex.align-items-center
+        table.table-sm
+          hbody
+            tr
+              td Frequency
+              td #[span.badge.badge-high too high]
 
+            tr
+              td Amount
+              td #[span.badge.badge-success perfect]
+    .row.bg-white.my-1
+      .col-4.text-pp.text-center.pr-0
+        .container
+          p.pt-3 #[span #[i.fas.fa-calendar.fa-2x]] #[br] #[span 10/13/20]
+      .col-8.d-flex.align-items-center
+        table.table-sm
+          hbody
+            tr
+              td Frequency
+              td #[span.badge.badge-high too high]
 
-  ul.nav.nav-list(id = "line-feed")
-    li.divider
-  div.item-container
-      div.item-result
-        div.report-info
-          div.item-info
-            div.data 09/01 :
-            img.check(src="/img/check-yes.svg", alt="CMU")
-          div.item-info
-            div.itemtext Frequency
-            div.leveltext Too Low
-            div.choosetext Perfect
-            div.leveltext Too High
-          div.item-info
-            div.itemtext Amount
-            div.leveltext Too Low
-            div.leveltext Perfect
-            div.choosetext Too High
-      div.item-result
-        div.report-info
-          div.item-info
-            div.data 09/02 :
-            img.check(src="/img/check-no.svg", alt="CMU")
-          div.item-info
-            div.itemtext Frequency
-            div.leveltext Too Low
-            div.leveltext Perfect
-            div.leveltext Too High
-          div.item-info
-            div.itemtext Amount
-            div.leveltext Too Low
-            div.leveltext Perfect
-            div.leveltext Too High
-      div.item-result
-        div.report-info
-          div.item-info
-            div.data 09/03 :
-            img.check(src="/img/check-yes.svg", alt="CMU")
-          div.item-info
-            div.itemtext Frequency
-            div.leveltext Too Low
-            div.choosetext Perfect
-            div.leveltext Too High
-          div.item-info
-            div.itemtext Amount
-            div.choosetext Too Low
-            div.leveltext Perfect
-            div.leveltext Too High
-      div.item-result
-        div.report-info
-          div.item-info
-            div.data 09/04 :
-            img.check(src="/img/check-yes.svg", alt="CMU")
-          div.item-info
-            div.itemtext Frequency
-            div.choosetext Too Low
-            div.leveltext Perfect
-            div.leveltext Too High
-          div.item-info
-            div.itemtext Amount
-            div.leveltext Too Low
-            div.choosetext Perfect
-            div.leveltext Too High
+            tr
+              td Amount
+              td #[span.badge.badge-silver too low]
+    .row.bg-white.my-1
+      .col-4.text-pp.text-center.pr-0
+        .container
+          p.pt-3 #[span #[i.fas.fa-calendar.fa-2x]] #[br] #[span 10/14/20]
+      .col-8.d-flex.align-items-center
+        table.table-sm
+          hbody
+            tr
+              td Frequency
+              td #[span.badge.badge-silver too low]
 
+            tr
+              td Amount
+              td #[span.badge.badge-success perfect]
+    .row.bg-white.my-1
+      .col-4.text-pp.text-center.pr-0
+        .container
+          p.pt-3 #[span #[i.fas.fa-calendar.fa-2x]] #[br] #[span 10/15/20]
+      .col-8.d-flex.align-items-center
+        table.table-sm
+          hbody
+            tr
+              td Frequency
+              td #[span.badge.badge-high too high]
+
+            tr
+              td Amount
+              td #[span.badge.badge-success perfect]
+
+  div.menu-button#back-button(onclick="window.location.href='/report'")
+    i.fas.fa-chevron-left.text-white
 
   include ../app-footer.pug
