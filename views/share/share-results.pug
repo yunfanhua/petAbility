@@ -11,7 +11,8 @@ block app-content
             h2 #[strong Share results with nearby shelters?]
             p This will help you establish a relationship with nearby shelters
         
-        div.confirm.d-flex
-            button(type='submit', class='btn btn-secondary', id='cancel-button', onclick="location.href='/report'") Cancel
-            button(type='submit', class='btn btn-primary', id='ok-button', onclick = "location.href='/share/location'") Ok
+        div.fixed-bottom
+            div.d-flex.justify-content-center.p-3
+                button(type='submit', class='btn btn-secondary', id='back-button', onclick="location.href='/report'").mx-2 Cancel
+                button(type='submit', class='btn btn-primary', id='next-button', onclick="location.href='/share/location'").mx-2 Ok
 //-   include app-footer.pug

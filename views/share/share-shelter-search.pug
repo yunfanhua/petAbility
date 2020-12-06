@@ -14,7 +14,10 @@ block app-content
           div.label WITHIN
           input(type="text" class="form-control" placeholder="20 miles")
           br
-          button(type='submit', class='btn btn-primary', id='search-button', onclick = "location.href='/share/shelters'") Search
-          a(href= "/report" id = "later") maybe later
+          button(type='submit', class='btn btn-primary', id='primary-button' onclick = "location.href='/share/shelters'") Search
+          .label.mx-auto
+      span#account-message(style="margin-top: -50px;") &nbsp
+      span.badge.badge-secondary #[a#sign-up-link(href= "/report") Maybe later]
+
 
   //- include app-footer.pug
