@@ -1,5 +1,5 @@
 $(function() {
-    const skipButton = $('#skip-button');
+    const skipButton = $('#backBtn');
     skipButton.click((e) => {
         e.preventDefault();
         console.log('back');
