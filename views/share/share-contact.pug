@@ -17,7 +17,8 @@ block app-content
                 .input-group-prepend
                 .input-group-text #[input(type="checkbox")] Phone
                 input.form-control(id= "phone" placeholder = "(xxx) xxx-xxxx")
-        div.confirm.d-flex
-            button(type='submit', class='btn btn-secondary', id='cancel-button', onclick="location.href='/share/form'").mx-1 Back
-            button(type='submit', class='btn btn-primary', id='ok-button', onclick = "location.href='/share/success'").mx-1 Submit
+    div.fixed-bottom.mb-4
+      div.d-flex.justify-content-center.p-3
+        button(type='submit', class='btn btn-secondary', id='back-button', onclick="location.href='/share/form'").mx-2 Back
+        button(type='submit', class='btn btn-primary', id='next-button', onclick = "location.href='/share/success'").mx-2 Submit
   //- include app-footer.pug

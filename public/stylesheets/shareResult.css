@@ -62,7 +62,6 @@
 }
 .search{
     padding: 15px;
-    max-width: 450px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -140,4 +139,14 @@ input[type='checkbox'] {
 .success{
     flex-direction: column;
     align-items: center;
+}
+
+#next-button{
+    min-width: 49%;
+}
+#back-button{
+    min-width:49%;
+}
+.checkbox-group{
+    width:100%;
 }

@@ -4,10 +4,10 @@ append stylesheets
   link(rel='stylesheet' href='/stylesheets/shareResult.css')
 
 block app-content
-  div.container
-    div.search
+  div.success.d-flex.justify-content-center
+    div.search.mt-2
         h2#title #[strong Select nearby shelters]
-        div.checkbox-group
+        div.checkbox-group.mt-3
             div.checkbox-inline
                 div
                     input.checkbox-input#shelterA(type = 'checkbox')
@@ -28,7 +28,8 @@ block app-content
                     input.checkbox-input#shelterD(type = 'checkbox')
                     label(for='shelterD') Shelter D
                 p.distance 4 mile
-            div.confirm.d-flex
-                button(type='submit', class='btn btn-outline-primary', onclick="location.href='/share/location'") Back
-                button(type='submit', class='btn btn-primary', onclick = "location.href='/share/form'") Next
-  //- include app-footer.pug
+        div.fixed-bottom.mb-4
+            div.d-flex.justify-content-center.p-3
+                button(type='submit', class='btn btn-secondary', id="back-button", onclick="location.href='/share/location'").mx-2 Back
+                button(type='submit', class='btn btn-primary', id="next-button", onclick = "location.href='/share/form'").mx-2 Next
+    //- include app-footer.pug
