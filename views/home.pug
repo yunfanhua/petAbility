@@ -4,43 +4,49 @@ append stylesheets
 append scripts
     script(type="module" src='js/home.js')
 block app-content
-
-  include animation.pug
+  //- a#logout-button.p-2.m-1.mr-3 #[span.text-white Log Out]
   .container.bg-primary
-    #interact-container.pt-3(style="height: 35vh;")
+    #interact-container.pt-3(style="height: 45vh;")
     #stats-container.bg-primary.p-1
       .row.p-0.text-center
         .col.text-white #[i.fas.fa-paw] #[span#level-text 1]
         .col.text-secondary #[i.fas.fa-bolt] #[span#energy-text 100]
         .col.text-success #[i.fas.fa-utensils] #[span#hunger-text 80]
         .col.text-info #[i.fas.fa-tint] #[span#thirst-text 80]
-  .container.pt-3
-    #main-menu(style='display:none').vertically-even
-      .row
-        button.btn.btn-outline-primary.my-2.mx-auto#interact-button #[li.fas.fa-football-ball] Interact
-      .row
-        button.btn.btn-outline-primary.my-2.mx-auto#customize-button #[li.fas.fa-edit]  Customize
-      .row
-        button.btn.btn-outline-primary.my-2(onclick="window.location.href='/report'").mx-auto #[li.fas.fa-scroll] View My Report
+  .container.pt-3.h-25
+    #main-menu(style='display:none').h-50
+      .row.h-100
+        .col-6.px-2
+          button.btn.btn-outline-primary.btn-block.h-100(onclick="window.location.href='/report'").mx-auto #[li.fas.fa-scroll] Report
+        .col-6.px-2
+          button.btn.btn-outline-primary.btn-block.mx-auto#interact-button.h-100 #[li.fas.fa-football-ball] Interact
+        
+      .row.my-2.h-100
+        .col-6.px-2
+          button.btn.btn-outline-danger.btn-block(onclick="window.location.href='/'").h-100 #[li.fas.fa-sign-out-alt] Log Out
+        .col-6.px-2
+          button.btn.btn-outline-primary.btn-block#customize-button.h-100 #[li.fas.fa-edit] Customize
+       
+
     #interact-menu(style="display:none").vertically-even
       .row
-        button.btn.btn-outline-primary.my-2.mx-auto#walk-button #[li.fas.fa-dog] Take a Walk
+        button.btn.btn-outline-primary.mx-auto#walk-button #[li.fas.fa-dog] Take a Walk
       .row
-        button.btn.btn-outline-primary.my-2.mx-auto#feed-button #[li.fas.fa-utensils]  Feed
+        button.btn.btn-outline-primary.mx-auto#feed-button #[li.fas.fa-utensils]  Feed
       .row
-        button.btn.btn-secondary.my-2.mx-auto.back-button Cancel
+        button.btn.btn-secondary.mx-auto.back-button Cancel
     #walk-settings-menu(style="display:none").vertically-even
       .row
-        p.mx-auto How far would you like to walk?
-        .form-group.mx-auto 
+        p.mx-auto.py-0.my-1 How far would you like to walk?
+        .form-group.mx-auto.mb-0
           .input-group
             input.form-control.text-center(value="1")#walk-distance
             .input-group-append
               span.input-group-text miles
       .row
-        button.btn.btn-primary.my-1.mx-auto#commit-walk-button Let's Go!
+        button.btn.btn-primary.mx-auto#commit-walk-button Let's Go!
       .row
-        button.btn.btn-secondary.my-1.mx-auto.back-button Cancel
+        button.btn.btn-secondary.mx-auto.back-button Cancel
 
     #walking-menu(style="display:none")
       .progress.bg-primary
@@ -52,46 +58,44 @@ block app-content
           button.btn.btn-primary.my-2.mx-auto#stop-walking-button Stop Early
 
     #summary-menu(style="display:none").vertically-even
-      .row
-        p.mx-auto#summary-text
-      .row
+        p.mx-auto#summary-text #[br]
         p.mx-auto Your bonding has grown!
         button.btn.btn-secondary.my-2.mx-auto.back-button Yes!
     
     #feed-settings-menu(style="display:none").vertically-even
       .row
-        p.mx-auto What would you like to feed?
+        p.mx-auto.mb-0 What would you like to feed?
       .row.text-center.w-100
         .col.text-success.food-option(food="food")
-          p.p-1.mx-auto #[i.fas.fa-utensils] RoarBoost
+          p.p-1.mb-1.mx-auto #[i.fas.fa-utensils] RoarBoost
         .col.text-info.food-option(food="water")
-          p.p-1.mx-auto #[i.fas.fa-tint] FUJI Water
+          p.p-1.mb-1.mx-auto #[i.fas.fa-tint] FUJI Water
       .row
         button.btn.btn-primary.my-1.mx-auto#commit-feed-button(disabled) Feed
       .row
         button.btn.btn-secondary.my-1.mx-auto.back-button Cancel
 
     #customize-menu(style='display:none').vertically-even
-      .container.px-4
-        .row.m-2.py-1
+      .container
+        .row.m-2.pb-1.w-100
           .col-2
             span.m-1.text-primary #[li.fas.fa-palette.fa-lg]
-          .col 
+          .col-10
             span.p-1.text-secondary.customize-option(option-type="color", option-value="yellow") #[li.fas.fa-circle]
             span.p-1.text-brown.customize-option(option-type="color", option-value="brown") #[li.fas.fa-circle]
             span.p-1.text-silver.customize-option(option-type="color", option-value="silver") #[li.fas.fa-circle]
             span.p-1.text-cherry.customize-option(option-type="color", option-value="cherry") #[li.fas.fa-circle]
 
-        .row.m-2.py-1
+        .row.m-2.pb-1.w-100
           .col-2
             span.m-1.text-primary #[li.fas.fa-compress-alt.fa-lg]
-          .col
+          .col-10
             span.p-1.customize-option(option-type="size", option-value="small") small
             span.p-1.customize-option(option-type="size", option-value="medium") medium
             span.p-1.customize-option(option-type="size", option-value="large") large
 
-        .row
-          button.btn.btn-primary.my-1.mx-auto#commit-customize-button Confirm
-        .row
-          button.btn.btn-secondary.my-1.mx-auto#cancel-customize-button Cancel
+      .row
+        button.btn.btn-primary.mx-auto#commit-customize-button Confirm
+      .row
+        button.btn.btn-secondary.mx-auto#cancel-customize-button Cancel
   include app-footer.pug

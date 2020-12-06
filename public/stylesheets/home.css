@@ -5,7 +5,13 @@
     display: flex;
     align-items: center;
     flex-wrap: nowrap;
-    height: 27vh;
+    height: calc(40vh - 6em);
+}
+
+#main-menu .btn {
+    min-width: 0 !important;
+    min-height: 0 !important;
+    border-radius: 0.25em !important;
 }
 
 .food-option p {
@@ -50,4 +56,10 @@ span.customize-option {
 
 .text-silver{
     color: #aaa;
+}
+
+#logout-button {
+    position: absolute;
+    top: 0;
+    right: 0;
 }
