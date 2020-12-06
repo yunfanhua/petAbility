@@ -32,7 +32,7 @@ async function switchTab(from, to) {
 
 function setStats(){
     for(let stat in stats) {
-        console.log(stat)
+        //console.log(stat)
         $(`#${stat}-text`).text(stats[stat].toFixed(0));
     }
 }
@@ -133,7 +133,7 @@ $(document).ready(()=>{
     })
 
     $('.food-option').click((e)=>{
-        console.log($(e.target))
+        //console.log($(e.target))
         $('.food-option').removeClass('selected');
         $(e.target).addClass('selected');
         feedFood = $(e.target).attr('food');
@@ -165,7 +165,7 @@ $(document).ready(()=>{
     $('.customize-option').click((e)=> {
         let type = $(e.target).attr('option-type');
         let value = $(e.target).attr('option-value');
-        console.log(type, value);
+        //console.log(type, value);
         if (type == 'size') {
             changeSize(value);
             newSize = value;

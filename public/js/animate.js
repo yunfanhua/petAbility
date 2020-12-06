@@ -24,9 +24,9 @@ export function playAction(action) {
 
 export function changeSize(size) {
     let mapping = {
-        'small': 0.1,
-        'medium': 0.12,
-        'large': 0.14
+        'small': 0.08,
+        'medium': 0.1,
+        'large': 0.12
     }
     model.scale.x = mapping[size];
     model.scale.y = mapping[size];
@@ -67,7 +67,7 @@ function init() {
     const loader = new FBXLoader();
     loader.load('models/Dog.fbx', function (fbx) {
         model = fbx;
-        console.log(model)
+        //console.log(model)
         model.traverse(obj=> {
             if(obj instanceof THREE.Line) {
                 obj.visible = false;
@@ -77,12 +77,12 @@ function init() {
         setModelMaterial(model.children[1]);
         scene.add(model);
         loadAnimations().then(animations=>{
-            console.log(animations)
+            //console.log(animations)
             createGUI(model, animations);
         });
     }, undefined, function (e) {
 
-        console.error(e);
+        //console.error(e);
 
     });
 
@@ -125,7 +125,7 @@ export function changeColor(color) {
 }
 
 function setModelMaterial(mesh) {
-    console.log(mesh.material)   
+    //console.log(mesh.material)   
     let colors = Uint8Array.from([1, 200, 255]);
     const gradientMap = new THREE.DataTexture( colors, colors.length, 1, THREE.LuminanceFormat );
     gradientMap.minFilter = THREE.NearestFilter;
@@ -140,9 +140,9 @@ function setModelMaterial(mesh) {
         map: texture
         //map: mesh.material.map,
     });
-    console.log(mesh.material.map, texture)
+    //console.log(mesh.material.map, texture)
     mesh.material =  toonMaterial;
-    console.log(mesh.material)   
+    //console.log(mesh.material)   
 
 }
 
