@@ -10,14 +10,15 @@ block app-content
     .row.bg-brightgrey
       .col-3.text-white.text-center
         .container.py-4
-          img.rounded-circle(src='img/default_pet.png' alt='Cinque Terre' width='64' height='64' id = "potrait-image" )
+          img.rounded-circle(src='img/default_pet.png' alt='Cinque Terre' width='70' height='64' id = "potrait-image" )
       .col.p-1.d-flex.align-items-center
         .container.text-center
+        
           button(class='btn btn-outline-secondary' onclick="window.location.href='/share'").my-2 Share Report
 
     a(href='/report/feed')
-      .row.bg-secondary-yellow.my-1
-        .col-3.text-pp.text-center.pr-0
+      .row.bg-silver.my-1
+        .col-3.text-success.text-center.pr-0
           .container
             p.pt-3 #[span #[i.fas.fa-utensils.fa-2x]] #[br] #[span Feeding]
         .col.p-1.d-flex.align-items-center
@@ -25,8 +26,8 @@ block app-content
             .progress.bg-jin
               .progress-bar(style="width: 80%;").bg-blbl 80%
     a(href='/report/exercise')
-      .row.bg-secondary-yellow.my-1
-        .col-3.text-pp.text-center.pr-0
+      .row.bg-silver.my-1
+        .col-3.text-white.text-center.pr-0
           .container
             p.pt-3 #[span #[i.fas.fa-paw.fa-2x]] #[br] #[span Exercise]
         .col.p-1.d-flex.align-items-center
@@ -34,7 +35,7 @@ block app-content
             .progress.bg-jin
               .progress-bar(style="width: 30%;").bg-blbl 30%
     a(href='/report/hygiene')
-      .row.bg-secondary-yellow.my-1
+      .row.bg-silver.my-1
         .col-3.text-pp.text-center.pr-0
           .container
             p.pt-3 #[span #[i.fas.fa-shower.fa-2x]] #[br] #[span Hygiene]
@@ -43,8 +44,8 @@ block app-content
             .progress.bg-jin
               .progress-bar(style="width: 90%;").bg-blbl 90%
     a(href='/report/happiness')
-      .row.bg-secondary-yellow.my-1
-        .col-3.text-pp.text-center.pr-0
+      .row.bg-silver.my-1
+        .col-3.text-pink.text-center.pr-0
           .container
             p.pt-3 #[span #[i.fas.fa-heart.fa-2x]] #[br] #[span Happiness]
         .col.p-1.d-flex.align-items-center
