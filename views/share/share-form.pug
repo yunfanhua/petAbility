@@ -16,7 +16,8 @@ block app-content
             button(type ='submit', class = 'btn choice-button') Volunteer
             br
             textarea.form-control(id = "comment-box" placeholder="Leave a comment if you would like")
-        div.confirm.d-flex
-            button(type='submit', class='btn btn-secondary', id='cancel-button', onclick="location.href='/share/shelters'").mx-1 Back
-            button(type='submit', class='btn btn-primary', id='ok-button', onclick = "location.href='/share/contact'").mx-1 Next
+    div.fixed-bottom.mb-4
+        div.d-flex.justify-content-center.p-3
+            button(type='submit', class='btn btn-secondary', id='back-button', onclick="location.href='/share/shelters'").mx-2 Back
+            button(type='submit', class='btn btn-primary', id='next-button', onclick = "location.href='/share/contact'").mx-2 Next
 //-   include app-footer.pug
