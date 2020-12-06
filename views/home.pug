@@ -6,15 +6,15 @@ append scripts
 block app-content
   //- a#logout-button.p-2.m-1.mr-3 #[span.text-white Log Out]
   .container.bg-primary
-    #interact-container.pt-3(style="height: 45vh;")
+    #interact-container.pt-3(style="height: calc(100vh - 22em);")
     #stats-container.bg-primary.p-1
       .row.p-0.text-center
         .col.text-white #[i.fas.fa-paw] #[span#level-text 1]
         .col.text-secondary #[i.fas.fa-bolt] #[span#energy-text 100]
         .col.text-success #[i.fas.fa-utensils] #[span#hunger-text 80]
         .col.text-info #[i.fas.fa-tint] #[span#thirst-text 80]
-  .container.pt-3.h-25
-    #main-menu(style='display:none').h-50
+  .container.pt-3#home-menu-container
+    #main-menu(style='display:none').h-50.mx-2
       .row.h-100
         .col-6.px-2
           button.btn.btn-outline-primary.btn-block.h-100(onclick="window.location.href='/report'").mx-auto #[li.fas.fa-scroll] Report

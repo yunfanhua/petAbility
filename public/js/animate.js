@@ -10,7 +10,7 @@ let container, stats, clock, gui, mixer, actions, activeAction, previousAction;
 let camera, scene, renderer, model, effect;
 let sky, sun;
 
-let scale = 0.12;
+let scale = 0.1;
 const api = { state: 'Idle' };
 let actionNames = ['Idle', 'Walk', 'Eat', 'Jump'];
 

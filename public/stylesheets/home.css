@@ -5,13 +5,17 @@
     display: flex;
     align-items: center;
     flex-wrap: nowrap;
-    height: calc(40vh - 6em);
+    height: 100%;
 }
 
 #main-menu .btn {
     min-width: 0 !important;
     min-height: 0 !important;
     border-radius: 0.25em !important;
+}
+
+#home-menu-container {
+    height: 12em;
 }
 
 .food-option p {
