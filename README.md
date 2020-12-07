@@ -48,5 +48,7 @@ get stored right now.
 
 * Only limited customization options are available now.
 
+* Some functionality not compatible with devices with smaller screen size (IPhone 5/SE and below)
+
 
 
