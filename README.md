@@ -23,6 +23,7 @@ with real pets.
 * Express
 * Bootstrap 4
 * Three.js
+* D3.js
 * Pug view engine
 * SASS: CSS extension
 
