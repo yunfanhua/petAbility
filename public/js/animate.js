@@ -15,6 +15,23 @@ const api = { state: 'Idle' };
 let actionNames = ['Idle', 'Walk', 'Eat', 'Jump'];
 
 
+let sizeMappings = {
+    'small': 0.08,
+    'medium': 0.1,
+    'large': 0.12
+} 
+
+let colorMappings = {
+    'yellow': 'Dog_A',
+    'brown': 'Dog_chocolate',
+    'silver': 'Dog_A_silver',
+    'cherry': 'Dog_A_cherry'
+}
+let savedSize = window.localStorage.getItem('size');
+let savedColor = window.localStorage.getItem('color');
+if (savedSize) scale = sizeMappings[savedSize];
+if (!savedColor) savedColor = 'yellow';
+
 init();
 animate();
 
@@ -22,15 +39,11 @@ export function playAction(action) {
     fadeToAction(action, 0.5);
 }
 
+
 export function changeSize(size) {
-    let mapping = {
-        'small': 0.08,
-        'medium': 0.1,
-        'large': 0.12
-    }
-    model.scale.x = mapping[size];
-    model.scale.y = mapping[size];
-    model.scale.z = mapping[size];
+    model.scale.x = sizeMappings[size];
+    model.scale.y = sizeMappings[size];
+    model.scale.z = sizeMappings[size];
 
 }
 
@@ -113,13 +126,8 @@ function init() {
 }
 
 export function changeColor(color) {
-    let mappings = {
-        'yellow': 'Dog_A',
-        'brown': 'Dog_chocolate',
-        'silver': 'Dog_A_silver',
-        'cherry': 'Dog_A_cherry'
-    }
-    const texture = new THREE.TextureLoader().load( `models/${mappings[color]}.png`);
+    
+    const texture = new THREE.TextureLoader().load( `models/${colorMappings[color]}.png`);
     texture.encoding = THREE.sRGBEncoding;
     model.children[1].material.map = texture;
 }
@@ -131,7 +139,7 @@ function setModelMaterial(mesh) {
     gradientMap.minFilter = THREE.NearestFilter;
     gradientMap.magFilter = THREE.NearestFilter;
     gradientMap.generateMipmaps = false;
-    const texture = new THREE.TextureLoader().load( 'models/Dog_A.png');
+    const texture = new THREE.TextureLoader().load( `models/${colorMappings[savedColor]}.png`);
     texture.encoding = THREE.sRGBEncoding;
     let toonMaterial = new THREE.MeshToonMaterial ({
         color: new THREE.Color( 'white'),

@@ -53,9 +53,7 @@ $(document).ready(async ()=>{
     let savedColor = window.localStorage.getItem('color');
     if(savedSize) size = savedSize; else size = 'medium';
     if(savedColor) color = savedColor; else color = 'yellow';
-    await sleep(500);
-    changeColor(color);
-    changeSize(size);
+
     let statsString = window.localStorage.getItem('stats');
     if (statsString) stats = JSON.parse(statsString);
     setStats();
