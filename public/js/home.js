@@ -5,7 +5,7 @@ let current, previous;
 let walkDistance = 1, currentWalkDistance = 0, walking = false;;
 let feedFood;
 let size, color;
-let newSize = size, newColor = color;
+let newSize, newColor;
 let stats = {
     level: 1,
     energy: 100,
@@ -53,7 +53,8 @@ $(document).ready(async ()=>{
     let savedColor = window.localStorage.getItem('color');
     if(savedSize) size = savedSize; else size = 'medium';
     if(savedColor) color = savedColor; else color = 'yellow';
-
+    newSize = size;
+    newColor = color;
     let statsString = window.localStorage.getItem('stats');
     if (statsString) stats = JSON.parse(statsString);
     setStats();
