@@ -51,8 +51,8 @@ $(document).ready(async ()=>{
 
     let savedSize = window.localStorage.getItem('size');
     let savedColor = window.localStorage.getItem('color');
-    if(savedSize) size = savedSize; else size = 'medium';
-    if(savedColor) color = savedColor; else color = 'yellow';
+    if(savedSize || savedSize == "undefined") size = savedSize; else size = 'medium';
+    if(savedColor || savedColor == "undefined") color = savedColor; else color = 'yellow';
     newSize = size;
     newColor = color;
     let statsString = window.localStorage.getItem('stats');
