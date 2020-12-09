@@ -1,20 +1,21 @@
 extends ../app.pug
 
 append stylesheets
-  script(src="js/searchInput.js")
 
 block app-content
-  div.cover-photo
-    img.user-image(src="img/searchCover.jpeg", alt="CMU", width="250px", height="160px")
-  div.search
-    div.search-prompt Ready For A Real Pet?
-    form
-      div.search-group
-        div.label I'M FROM
-        input(type="text" class="form-control" placeholder="94043, CA")
-        div.label WITHIN
-        input(type="text" class="form-control" placeholder="20 miles")
-        br
-        button(type='submit', class='btn btn-primary', id='primary-button') Search
+    div.cover-photo
+        img.user-image(src="img/searchCover.jpeg", alt="CMU", width="250px", height="160px")
+    div.search
+        div.search-prompt Ready For A Real Pet?
+        div.search-group
+            form(action='/searchresult')
+                .form-group
+                    div.label I'M FROM
+                    input(pattern="[0-9]{5}" title="please input a valid Zip Code" required type="text" class="form-control" placeholder="94043")
+                .form-group
+                    div.label WITHIN (miles)
+                    input(pattern="[0-9]+" title="enter number of miles" required type="text" class="form-control" placeholder="20")
+                    br
+                    button(type='submit', class='btn btn-primary', id='primary-button') Search
 
-  include ../app-footer.pug
+    include ../app-footer.pug
