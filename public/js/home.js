@@ -4,7 +4,7 @@ let mainMenu, interactMenu, walkSettingsMenu, walkingMenu, summaryMenu, feedSett
 let current, previous;
 let walkDistance = 1, currentWalkDistance = 0, walking = false;;
 let feedFood;
-let size = 'medium', color = 'yellow';
+let size, color;
 let newSize = size, newColor = color;
 let stats = {
     level: 1,
@@ -35,9 +35,10 @@ function setStats(){
         //console.log(stat)
         $(`#${stat}-text`).text(stats[stat].toFixed(0));
     }
+    window.localStorage.setItem('stats', JSON.stringify(stats));
 }
 
-$(document).ready(()=>{
+$(document).ready(async ()=>{
     mainMenu =  $('#main-menu');
     interactMenu =  $('#interact-menu');
     walkSettingsMenu = $('#walk-settings-menu');
@@ -47,8 +48,17 @@ $(document).ready(()=>{
     customizeMenu = $('#customize-menu');
     current = mainMenu;
     previous = mainMenu;
-    setStats();
 
+    let savedSize = window.localStorage.getItem('size');
+    let savedColor = window.localStorage.getItem('color');
+    if(savedSize) size = savedSize; else size = 'medium';
+    if(savedColor) color = savedColor; else color = 'yellow';
+    await sleep(100);
+    changeColor(color);
+    changeSize(size);
+    let statsString = window.localStorage.getItem('stats');
+    if (statsString) stats = JSON.parse(statsString);
+    setStats();
 
     if (window.location.href.split('#').length > 1) {
         let view = window.location.href.split('#')[1];
@@ -165,7 +175,7 @@ $(document).ready(()=>{
     $('.customize-option').click((e)=> {
         let type = $(e.target).attr('option-type');
         let value = $(e.target).attr('option-value');
-        //console.log(type, value);
+
         if (type == 'size') {
             changeSize(value);
             newSize = value;
@@ -183,6 +193,8 @@ $(document).ready(()=>{
         size = newSize;
         color = newColor;
         switchTab(current, mainMenu);
+        window.localStorage.setItem('size', size);
+        window.localStorage.setItem('color', color);
     })
 
     $('#cancel-customize-button').click(()=>{
