@@ -1,24 +1,39 @@
 extends ../app.pug
 
 append stylesheets
-  link(rel='stylesheet' href='/stylesheets/shareResult.css')
+    link(rel='stylesheet' href='/stylesheets/shareResult.css')
 
 block app-content
-  div.d-flex.justify-content-center
-    div.container.p-4 
-        h2#title #[strong Contact me by]
-        .form-group
-            .input-group
-                .input-group-prepend
-                .input-group-text #[input(type="checkbox")] Email
-                input.form-control(id= "phone" placeholder = "example@address.com")
-        .form-group
-            .input-group
-                .input-group-prepend
-                .input-group-text #[input(type="checkbox")] Phone
-                input.form-control(id= "phone" placeholder = "(xxx) xxx-xxxx")
-    div.fixed-bottom.mb-4
-      div.d-flex.justify-content-center.p-3
-        button(type='submit', class='btn btn-secondary', id='back-button', onclick="location.href='/share/form'").mx-2 Back
-        button(type='submit', class='btn btn-primary', id='next-button', onclick = "location.href='/share/success'").mx-2 Submit
-  //- include app-footer.pug
+    div.d-flex.justify-content-center
+        div.container.p-4
+            h2#title #[strong Contact me by]
+            form(action='/share/success')
+                .form-group
+                    .input-group
+                        .input-group-prepend
+                        .input-group-text #[input(type="checkbox" field="email" class="checkbox-input")] Email
+                        input.form-control(id= "email" placeholder = "example@address.com" type="email")
+                .form-group
+                    .input-group
+                        .input-group-prepend
+                        .input-group-text #[input(type="checkbox" field="phone" class="checkbox-input")] Phone
+                        input.form-control(pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" title="please input a valid phone number" id= "phone" placeholder = "xxx-xxx-xxxx" type="tel")
+                div.fixed-bottom.mb-4
+                    div.d-flex.justify-content-center.p-3
+                        button(class='btn btn-secondary', id='back-button', onclick="location.href='/share/form'").mx-2 Back
+                        button(type='submit', class='btn btn-primary', id='next-button' disabled).mx-2 Submit
+    //- include app-footer.pug
+    script.
+        $("input[type=checkbox]").change(e => {
+            console.log(e.target)
+            $(`#${e.target.getAttribute("field")}`).prop("required", $(e.target).prop("checked"));
+        })
+        let selected = 0;
+        $(".checkbox-input").change(e => {
+            if ($(e.target).prop("checked")) {
+                selected++
+            } else {
+                selected--
+            }
+            $("#next-button").prop("disabled", selected === 0)
+        })

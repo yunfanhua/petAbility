@@ -50,5 +50,5 @@ get stored right now.
 
 * Some functionality not compatible with devices with smaller screen size (IPhone 5/SE and below)
 
-
+* Please don't use browser back button
 

@@ -53,7 +53,7 @@ $(document).ready(async ()=>{
     let savedColor = window.localStorage.getItem('color');
     if(savedSize) size = savedSize; else size = 'medium';
     if(savedColor) color = savedColor; else color = 'yellow';
-    await sleep(100);
+    await sleep(500);
     changeColor(color);
     changeSize(size);
     let statsString = window.localStorage.getItem('stats');
@@ -80,7 +80,7 @@ $(document).ready(async ()=>{
             playAction('Walk');
         }
     })
-    
+
     $('.back-button').click(()=>{
         switchTab(current, previous);
     })
@@ -223,4 +223,3 @@ async function interpolateStats(targetStats) {
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
-  

@@ -31,5 +31,15 @@ block app-content
         div.fixed-bottom.mb-4
             div.d-flex.justify-content-center.p-3
                 button(type='submit', class='btn btn-secondary', id="back-button", onclick="location.href='/share/location'").mx-2 Back
-                button(type='submit', class='btn btn-primary', id="next-button", onclick = "location.href='/share/form'").mx-2 Next
+                button(type='submit', class='btn btn-primary', id="next-button", onclick = "location.href='/share/form'" disabled).mx-2 Next
     //- include app-footer.pug
+    script.
+        let selected = 0;
+        $(".checkbox-input").change(e => {
+            if ($(e.target).prop("checked")) {
+                selected++
+            } else {
+                selected--
+            }
+            $("#next-button").prop("disabled", selected===0)
+        })

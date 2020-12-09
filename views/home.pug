@@ -20,13 +20,13 @@ block app-content
           button.btn.btn-outline-primary.btn-block.h-100(onclick="window.location.href='/report'").mx-auto #[li.fas.fa-scroll] Report
         .col-6.px-2
           button.btn.btn-outline-primary.btn-block.mx-auto#interact-button.h-100 #[li.fas.fa-football-ball] Interact
-        
+
       .row.my-2.h-100
         .col-6.px-2
           button.btn.btn-outline-danger.btn-block(onclick="window.location.href='/'").h-100 #[li.fas.fa-sign-out-alt] Log Out
         .col-6.px-2
           button.btn.btn-outline-primary.btn-block#customize-button.h-100 #[li.fas.fa-edit] Customize
-       
+
 
     #interact-menu(style="display:none").vertically-even
       .row
@@ -40,7 +40,7 @@ block app-content
         p.mx-auto.py-0.my-1 How far would you like to walk?
         .form-group.mx-auto.mb-0
           .input-group
-            input.form-control.text-center(value="1")#walk-distance
+            input.form-control.text-center(value="1" type="number" required)#walk-distance
             .input-group-append
               span.input-group-text miles
       .row
@@ -61,7 +61,7 @@ block app-content
         p.mx-auto#summary-text #[br]
         p.mx-auto Your bonding has grown!
         button.btn.btn-secondary.my-2.mx-auto.back-button Yes!
-    
+
     #feed-settings-menu(style="display:none").vertically-even
       .row
         p.mx-auto.mb-0 What would you like to feed?
