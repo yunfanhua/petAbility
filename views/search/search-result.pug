@@ -1,6 +1,10 @@
 extends ../app.pug
 
 block app-content
+  div.back(style="margin-top: -43px; margin-left: 20px")
+    a.link(href='/search')
+      i.fas.fa-chevron-left.fa-lg(style="color:#ececec;")
+  br
   br
   div.result-prompt Your Search Result...
   div.result-container
